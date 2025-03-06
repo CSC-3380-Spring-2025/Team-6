@@ -1,10 +1,10 @@
-# [Name of the Project] : [Team Number]
+# CyberDojo : Team 6
 # Members
-Project Manager: [Name] ([GitHub Name])\
-Communications Lead: [Name] ([GitHub Name])\
-Git Master: [Name] ([GitHub Name])\
-Design Lead: [Name] ([GitHub Name])\
-Quality Assurance Tester: [Name] ([GitHub Name])
+Project Manager: Brandon Facey ([GitHub Name])\
+Communications Lead: Thomas Doan tdoan19\
+Git Master: William Hays ([GitHub Name])\
+Design Lead: Ahmad Hijazi ([GitHub Name])\
+Quality Assurance Tester: Maddie Brown ([GitHub Name])
 
 # About Our Software
 
