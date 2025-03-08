@@ -1,14 +1,19 @@
 # CyberDojo : Team 6
 # Members
-Project Manager: Brandon Facey KyoukaHeiwa
-Communications Lead: Thomas Doan tdoan19
-Git Master: William Hays Williamhays27
-Design Lead: Ahmad Hijazi ahmxdhijazi
-Quality Assurance Tester: Maddie Brown maddieslayy
+Project Manager: Brandon Facey [KyoukaHeiwa}
+
+Communications Lead: Thomas Doan [tdoan19]
+
+Git Master: William Hays [Williamhays27]
+
+Design Lead: Ahmad Hijazi [ahmxdhijazi]
+
+Quality Assurance Tester: Maddie Brown [maddieslayy]
+
 
 # About Our Software
 
-Describe a little about what the project is about here.
+CyberDojo is a website designed for people to learn the basics of Cybersecurity. 
 ## Platforms Tested on
 - MacOS
 - Android
