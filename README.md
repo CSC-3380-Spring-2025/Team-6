@@ -16,7 +16,7 @@ Describe a little about what the project is about here.
 - Linux
 - Windows
 # Important Links
-Kanban Board: [link]\
+Kanban Board: https://sealteamsix.atlassian.net/jira/software/projects/KAN/boards/1 \
 Designs: [link]\
 Styles Guide(s): [link]
 
