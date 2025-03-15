@@ -32,26 +32,24 @@ const Homepage: React.FC = () => {
 
   return (
     <div>
-      {/* Navbar (Black Top Bar) */}
-      <div className="navbar">
-        <div className="navbar-center">
-          <img src="cyberdojoLogo.png" alt="My Logo" id="logo" />
-          <h1>CyberDojo</h1>
-        </div>
-      </div>
+  {/* Images at the top of the page */}
+    <div className="top-images">
+      <img src="dabird.png" alt="Bird Logo" id="logo1" />
+      <img src="CyberLogoText.png" alt="CyberDojo Logo" id="logo2" />
+    </div>
 
-      {/* Main Content */}
-      <div className="content">
-        <p>Welcome to CyberDojo!</p>
+  {/* Main Content */}
+    <div className="content">
+      <p>Welcome to CyberDojo!</p>
 
-        {/* Button Container */}
-        <div className="button-container">
-          <button className="button" id="btn1">Section 1</button>
-          <button className="button" id="btn2">Section 2</button>
-          <button className="button" id="btn3">Section 3</button>
-        </div>
+    {/* Button Container */}
+      <div className="button-container">
+        <button className="button" id="btn1">Section 1</button>
+        <button className="button" id="btn2">Section 2</button>
+        <button className="button" id="btn3">Section 3</button>
       </div>
     </div>
+  </div>
   );
 };
 
