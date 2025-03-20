@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { auth } from "./firebase";
-import "./AuthPage.css"; 
+import { useNavigate } from "react-router-dom";
+import "./AuthPage.css";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -15,6 +16,7 @@ const AuthPage: React.FC = () => {
   const [password, setPassword] = useState<string>("");
   const [isLogin, setIsLogin] = useState<boolean>(true);
   const [user, setUser] = useState<any>(null);
+  const navigate = useNavigate();
 
   // Handle email/password form submission
   const handleSubmit = async (e: React.FormEvent) => {
@@ -79,41 +81,47 @@ const AuthPage: React.FC = () => {
 
   // If no user is logged in, show the login/signup form and Google Sign-In button
   return (
-    <div className="auth-container">
-      <div className="auth-card">
-        <h1 className="auth-title">{isLogin ? "Login" : "Sign Up"}</h1>
-        <form onSubmit={handleSubmit} className="auth-form">
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="auth-input"
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="auth-input"
-            required
-          />
-          <button type="submit" className="auth-button">
-            {isLogin ? "Login" : "Sign Up"}
-          </button>
-        </form>
-        <button
-          onClick={() => setIsLogin(!isLogin)}
-          className="auth-switch-button"
-        >
-          Switch to {isLogin ? "Sign Up" : "Login"}
-        </button>
+    <div className="main-div">
+      <div className="auth-container">
+        <div className="auth-card">
+          <h1 className="auth-title">{isLogin ? "Login" : "Sign Up"}</h1>
+          <form onSubmit={handleSubmit} className="auth-form">
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="auth-input"
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="auth-input"
+              required
+            />
+            <button type="submit" className="auth-button">
+              {isLogin ? "Login" : "Sign Up"}
+            </button>
+          </form>
 
-        {/* Google Sign-In Button */}
-        <button onClick={handleGoogleSignIn} className="google-sign-in-button">
-          Sign in with Google
-        </button>
+          {/* Google Sign-In Button */}
+          <button
+            onClick={handleGoogleSignIn}
+            className="google-sign-in-button"
+          >
+            Sign in with Google
+          </button>
+
+          <button
+            onClick={() => setIsLogin(!isLogin)}
+            className="auth-switch-button"
+          >
+            Switch to {isLogin ? "Sign Up" : "Login"}
+          </button>
+        </div>
       </div>
     </div>
   );
