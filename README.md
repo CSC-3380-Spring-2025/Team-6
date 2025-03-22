@@ -1,6 +1,6 @@
 # CyberDojo : Team 6
 # Members
-Project Manager: Brandon Facey [KyoukaHeiwa}
+Project Manager: Maddie Brown [maddieslayy]
 
 Communications Lead: Thomas Doan [tdoan19]
 
@@ -8,7 +8,7 @@ Git Master: William Hays [Williamhays27]
 
 Design Lead: Ahmad Hijazi [ahmxdhijazi]
 
-Quality Assurance Tester: Maddie Brown [maddieslayy]
+Quality Assurance Tester: Brandon Facey [KyoukaHeiwa}
 
 
 # About Our Software
