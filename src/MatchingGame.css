@@ -1,0 +1,41 @@
+.matching-game {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .game-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 20px;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  h2, h3 {
+    margin-bottom: 10px;
+  }
+  
+  .card {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    background: lightgray;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    background: darkgray;
+  }
+  
+  .matched {
+    background: lightgreen;
+    pointer-events: none;
+  }
