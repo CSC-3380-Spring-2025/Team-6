@@ -26,10 +26,12 @@ const AuthPage: React.FC = () => {
         // Sign in with email/password
         await signInWithEmailAndPassword(auth, email, password);
         console.log("User signed in successfully!");
+        navigate("/"); // Redirect after login
       } else {
         // Sign up with email/password
         await createUserWithEmailAndPassword(auth, email, password);
         console.log("User created successfully!");
+        navigate("/"); // Redirect after sign-up
       }
     } catch (error) {
       console.error("Error during authentication:", error);
@@ -41,6 +43,7 @@ const AuthPage: React.FC = () => {
     try {
       const result = await signInWithPopup(auth, new GoogleAuthProvider());
       console.log("Google Sign-In successful!", result.user);
+      navigate("/"); // Redirect after Google Sign-In
     } catch (error) {
       console.error("Error during Google Sign-In:", error);
     }
