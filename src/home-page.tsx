@@ -29,9 +29,15 @@ const HomePage: React.FC = () => {
       </div>
 
       <div className="Section-Buttons">
-        <button className="sectionbtn">Physical Security Fundamentals</button>
-        <button className="sectionbtn">Phishing</button>
-        <button className="sectionbtn">Social Engineering Awareness</button>
+        <button className="sectionbtn" onClick={() => navigate("/courselisting1")}>
+          Physical Security Fundamentals
+        </button>
+        <button className="sectionbtn" onClick={() => navigate("/courselisting2")}> 
+          Phishing 
+          </button>
+        <button className="sectionbtn"onClick={() => navigate("/courselisting3")}>
+          Social Engineering Awareness
+        </button>
       </div>
     </div>
   );
