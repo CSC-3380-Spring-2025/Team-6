@@ -4,9 +4,12 @@ import AuthPage from "./AuthPage";
 import HomePage from "./home-page";
 import VideoOne from "./video-pages/video-one";
 import PrivateRoute from "./PrivateRoute";
-import CourseListing1 from "./course-listing-pages/course-listing1";
-import CourseListing2 from "./course-listing-pages/course-listing2";
-import CourseListing3 from "./course-listing-pages/course-listing3";
+import CourseListing1 from "./course-listing-pages/physical-security/course-listing1";
+import CourseListing2 from "./course-listing-pages/phishing/course-listing2";
+import CourseListing3 from "./course-listing-pages/social-engineering-awareness/course-listing3";
+import QuizFramework1 from "./course-listing-pages/physical-security/quiz-framework1";
+import QuizFramework2 from "./course-listing-pages/phishing/quiz-framework2";
+import QuizFramework3 from "./course-listing-pages/social-engineering-awareness/quiz-framework3";
 
 const App: React.FC = () => {
   return (
@@ -47,6 +50,9 @@ const App: React.FC = () => {
           }
         />
         */}
+        <Route path="/quiz1" element={<QuizFramework1 onGoHome={() => window.location.href = '/'} />} />
+        <Route path="/quiz2" element={<QuizFramework2 onGoHome={() => window.location.href = '/'} />} />
+        <Route path="/quiz3" element={<QuizFramework3 onGoHome={() => window.location.href = '/'} />} />
 
       </Routes>
     </Router>
