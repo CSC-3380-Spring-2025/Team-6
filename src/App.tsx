@@ -10,6 +10,9 @@ import CourseListing3 from "./course-listing-pages/social-engineering-awareness/
 import QuizFramework1 from "./course-listing-pages/physical-security/quiz-framework1";
 import QuizFramework2 from "./course-listing-pages/phishing/quiz-framework2";
 import QuizFramework3 from "./course-listing-pages/social-engineering-awareness/quiz-framework3";
+import MatchingGame1 from "./course-listing-pages/physical-security/matching-game1";
+import MatchingGame2 from "./course-listing-pages/phishing/matching-game2";
+import MatchingGame3 from "./course-listing-pages/social-engineering-awareness/matching-game3";
 
 const App: React.FC = () => {
   return (
@@ -53,6 +56,10 @@ const App: React.FC = () => {
         <Route path="/quiz1" element={<QuizFramework1 onGoHome={() => window.location.href = '/'} />} />
         <Route path="/quiz2" element={<QuizFramework2 onGoHome={() => window.location.href = '/'} />} />
         <Route path="/quiz3" element={<QuizFramework3 onGoHome={() => window.location.href = '/'} />} />
+
+        <Route path="/matching1" element={<MatchingGame1 onGoHome={() => window.location.href = '/'} />} />
+        <Route path="/matching2" element={<MatchingGame2 onGoHome={() => window.location.href = '/'} />} />
+        <Route path="/matching3" element={<MatchingGame3 onGoHome={() => window.location.href = '/'} />} />
 
       </Routes>
     </Router>
