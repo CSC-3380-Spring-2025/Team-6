@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import QuizFramework1 from "./quiz-framework3";
 
-const CourseListing2: React.FC = () => {
+const CourseListing3: React.FC = () => {
     const navigate = useNavigate();
     return (
         <div>
@@ -9,25 +10,25 @@ const CourseListing2: React.FC = () => {
             <title>HTML Elements Reference</title>
             </head>
 
-            <h1>Phishing</h1>
+            <h1>Social Engineering Awareness</h1>
 
-            <button onClick={() => navigate("/video2")}>
+            <button onClick={() => navigate("/video3")}>
             Video
             </button>
 
-            <button onClick={() => navigate("/reading2")}>
+            <button onClick={() => navigate("/reading3")}>
             Reading
             </button>
 
-            <button onClick={() => navigate("/matching2")}>
+            <button onClick={() => navigate("/matching3")}>
             Matching Terms/Games
             </button>
 
-            <button onClick={() => navigate("/quiz2")}>
+            <button onClick={() => navigate("/quiz3")}>
             Quiz
             </button>
         </div>
     );
 };
 
-export default CourseListing2;
+export default CourseListing3;
