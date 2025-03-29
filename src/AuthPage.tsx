@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { auth } from "./firebase";
 import { useNavigate } from "react-router-dom";
-import "./AuthPage.css";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -12,66 +11,59 @@ import {
 } from "firebase/auth";
 
 const AuthPage: React.FC = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [isLogin, setIsLogin] = useState<boolean>(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLogin, setIsLogin] = useState(true);
   const [user, setUser] = useState<any>(null);
   const navigate = useNavigate();
 
-  // Handle email/password form submission
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
+    return () => unsubscribe();
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       if (isLogin) {
-        // Sign in with email/password
         await signInWithEmailAndPassword(auth, email, password);
-        console.log("User signed in successfully!");
       } else {
-        // Sign up with email/password
         await createUserWithEmailAndPassword(auth, email, password);
-        console.log("User created successfully!");
       }
+      navigate("/");
     } catch (error) {
       console.error("Error during authentication:", error);
     }
   };
 
-  // Handle Google Sign-In
   const handleGoogleSignIn = async () => {
     try {
       const result = await signInWithPopup(auth, new GoogleAuthProvider());
-      console.log("Google Sign-In successful!", result.user);
+      navigate("/");
     } catch (error) {
       console.error("Error during Google Sign-In:", error);
     }
   };
 
-  // Handle logout
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      console.log("User signed out successfully!");
     } catch (error) {
       console.error("Error during logout:", error);
     }
   };
 
-  // Track authentication state
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
-    });
-
-    return () => unsubscribe();
-  }, []);
-
-  // If user is logged in, show welcome message and logout button
   if (user) {
     return (
-      <div className="auth-container">
-        <div className="auth-card">
-          <h1 className="welcome-message">Welcome, {user.email}!</h1>
-          <button className="logout-button" onClick={handleLogout}>
+      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md text-center">
+          <h1 className="text-2xl font-bold mb-4">Welcome, {user.email}!</h1>
+          <button
+            className="w-full p-3 bg-red-500 text-white rounded-md font-bold hover:bg-red-600"
+            onClick={handleLogout}
+          >
             Logout
           </button>
         </div>
@@ -79,49 +71,48 @@ const AuthPage: React.FC = () => {
     );
   }
 
-  // If no user is logged in, show the login/signup form and Google Sign-In button
   return (
-    <div className="main-div">
-      <div className="auth-container">
-        <div className="auth-card">
-          <h1 className="auth-title">{isLogin ? "Login" : "Sign Up"}</h1>
-          <form onSubmit={handleSubmit} className="auth-form">
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="auth-input"
-              required
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="auth-input"
-              required
-            />
-            <button type="submit" className="auth-button">
-              {isLogin ? "Login" : "Sign Up"}
-            </button>
-          </form>
-
-          {/* Google Sign-In Button */}
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md text-center">
+        <h1 className="text-2xl font-bold mb-4">
+          {isLogin ? "Login" : "Sign Up"}
+        </h1>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 outline-none"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 outline-none"
+            required
+          />
           <button
-            onClick={handleGoogleSignIn}
-            className="google-sign-in-button"
+            type="submit"
+            className="w-full p-3 bg-blue-500 text-white rounded-md font-bold hover:bg-blue-600"
           >
-            Sign in with Google
+            {isLogin ? "Login" : "Sign Up"}
           </button>
-
-          <button
-            onClick={() => setIsLogin(!isLogin)}
-            className="auth-switch-button"
-          >
-            Switch to {isLogin ? "Sign Up" : "Login"}
-          </button>
-        </div>
+        </form>
+        <button
+          onClick={handleGoogleSignIn}
+          className="w-full p-3 mt-3 bg-blue-600 text-white flex items-center justify-center rounded-md font-bold hover:bg-blue-700"
+        >
+          Sign in with Google
+        </button>
+        <button
+          onClick={() => setIsLogin(!isLogin)}
+          className="w-full mt-4 text-blue-500 font-bold hover:text-blue-700"
+        >
+          Switch to {isLogin ? "Sign Up" : "Login"}
+        </button>
       </div>
     </div>
   );
