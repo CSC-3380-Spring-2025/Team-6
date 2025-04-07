@@ -64,7 +64,9 @@ const HomePage: React.FC = () => {
           Social Engineering Awareness
         </button>
       </div>
-      <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content items-center p-4 position-fixed bottom-0 left-0 w-full">
+
+      {/* Footer Section */}
+      <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content items-center p-4 fixed bottom-0 left-0 w-full z-20">
         <aside className="grid-flow-col items-center">
           <svg
             width="36"
