@@ -1,5 +1,6 @@
 import * as React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LandingPage from "./landing-page"; 
 import AuthPage from "./AuthPage";
 import HomePage from "./home-page";
 import VideoOne from "./video-one";
@@ -9,7 +10,8 @@ const App: React.FC = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        {/**/}
+        <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<AuthPage />} />
         <Route
           path="/video-one"
