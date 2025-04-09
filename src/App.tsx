@@ -53,14 +53,14 @@ const App: React.FC = () => {
           }
         />
         */}
-        <Route path="/quiz1" element={<QuizFramework1 onGoHome={() => window.location.href = '/'} />} />
-        <Route path="/quiz2" element={<QuizFramework2 onGoHome={() => window.location.href = '/'} />} />
-        <Route path="/quiz3" element={<QuizFramework3 onGoHome={() => window.location.href = '/'} />} />
+        <Route path="/quiz1" element={<QuizFramework1 />} />
+        <Route path="/quiz2" element={<QuizFramework2 />} />
+        <Route path="/quiz3" element={<QuizFramework3 />} />
 
-        {/*<Route path="/matching1" element={<MatchingGame1 onGoHome={() => window.location.href = '/'} />} />
-        <Route path="/matching2" element={<MatchingGame2 onGoHome={() => window.location.href = '/'} />} />
-        <Route path="/matching3" element={<MatchingGame3 onGoHome={() => window.location.href = '/'} />} />
-          */}
+        <Route path="/matching1" element={<MatchingGame1/>} />
+        <Route path="/matching2" element={<MatchingGame2/>} />
+        <Route path="/matching3" element={<MatchingGame3/>} />
+        
       </Routes>
     </Router>
   );

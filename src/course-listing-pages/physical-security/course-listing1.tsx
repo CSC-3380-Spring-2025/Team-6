@@ -2,6 +2,7 @@
 
 import type React from "react";
 import { useNavigate } from "react-router-dom";
+import QuizFramework1 from "./quiz-framework1";
 
 const CourseListing1: React.FC = () => {
   const navigate = useNavigate();
