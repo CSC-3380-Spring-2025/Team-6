@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import "./quiz-framework.css"; // Updated import
+import { useNavigate } from "react-router-dom";
+import "./quiz-framework.css";
 
-interface QuizFrameworkProps {
-    onGoHome: () => void;
-}
-
-const QuizFramework: React.FC<QuizFrameworkProps> = ({ onGoHome }) => {
+const QuizFramework2: React.FC = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
     const [showResult, setShowResult] = useState(false);
+
+    const navigate = useNavigate();
 
     const questions = [
         {
@@ -49,7 +48,7 @@ const QuizFramework: React.FC<QuizFrameworkProps> = ({ onGoHome }) => {
                 <div className="quiz-box result-container">
                     <h2 className="question-title">Quiz Completed!</h2>
                     <p>Your Score: {score} / {questions.length}</p>
-                    <button className="restart-button" onClick={onGoHome}>
+                    <button className="restart-button" onClick={() => navigate("/")}>
                         Home
                     </button>
                 </div>
@@ -57,7 +56,11 @@ const QuizFramework: React.FC<QuizFrameworkProps> = ({ onGoHome }) => {
                 <div className="quiz-box">
                     <h2 className="question-title">{questions[currentQuestion].question}</h2>
                     {questions[currentQuestion].options.map((option) => (
-                        <button key={option} className="option-button" onClick={() => handleAnswer(option)}>
+                        <button
+                            key={option}
+                            className="option-button"
+                            onClick={() => handleAnswer(option)}
+                        >
                             {option}
                         </button>
                     ))}
@@ -67,4 +70,4 @@ const QuizFramework: React.FC<QuizFrameworkProps> = ({ onGoHome }) => {
     );
 };
 
-export default QuizFramework;
+export default QuizFramework2;

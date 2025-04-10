@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import QuizFramework1 from "./quiz-framework2";
+import QuizFramework2 from "./quiz-framework2";
 
 const CourseListing2: React.FC = () => {
     const navigate = useNavigate();
@@ -46,7 +46,7 @@ const CourseListing2: React.FC = () => {
             <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
               <button
                 className="btn btn-error p-3 pointer-events-auto"
-                onClick={() => navigate("/reading1")}
+                onClick={() => navigate("/reading2")}
               >
                 Reading
               </button>
@@ -70,7 +70,7 @@ const CourseListing2: React.FC = () => {
             <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
               <button
                 className="btn btn-error p-3 pointer-events-auto"
-                onClick={() => navigate("/matching1")}
+                onClick={() => navigate("/matching2")}
               >
                 Matching Terms/Games
               </button>
@@ -94,7 +94,7 @@ const CourseListing2: React.FC = () => {
             <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
               <button
                 className="btn btn-error p-3 pointer-events-auto"
-                onClick={() => navigate("/quiz1")}
+                onClick={() => navigate("/quiz2")}
               >
                 Quiz
               </button>
