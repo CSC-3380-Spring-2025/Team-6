@@ -1,8 +1,9 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import QuizFramework1 from "./quiz-framework3";
+"use client";
 
-const CourseListing3: React.FC = () => {
+import type React from "react";
+import { useNavigate } from "react-router-dom";
+
+const CourseListing1: React.FC = () => {
   const navigate = useNavigate();
   return (
     <div>
@@ -10,7 +11,7 @@ const CourseListing3: React.FC = () => {
         <title>HTML Elements Reference</title>
       </head>
 
-      <h1>Social Engineering Awareness</h1>
+      <h1>Password Security</h1>
 
       <div className="carousel w-full">
         {/* Slide 1 */}
@@ -113,4 +114,4 @@ const CourseListing3: React.FC = () => {
   );
 };
 
-export default CourseListing3;
+export default CourseListing1;

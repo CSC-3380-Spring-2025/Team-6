@@ -10,7 +10,7 @@ const CourseListing2: React.FC = () => {
           <title>HTML Elements Reference</title>
         </head>
 
-        <h1>Phishing</h1>
+        <h1>Physical Security</h1>
 
         <div className="carousel w-full">
           {/* Slide 1 */}
@@ -22,7 +22,7 @@ const CourseListing2: React.FC = () => {
             <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
               <button
                 className="btn btn-error p-3 pointer-events-auto"
-                onClick={() => navigate("/video1")}
+                onClick={() => navigate("/video2")}
               >
                 Video
               </button>

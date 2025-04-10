@@ -1,9 +1,8 @@
-"use client";
-
-import type React from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import QuizFramework1 from "./quiz-framework3";
 
-const CourseListing1: React.FC = () => {
+const CourseListing3: React.FC = () => {
   const navigate = useNavigate();
   return (
     <div>
@@ -11,7 +10,7 @@ const CourseListing1: React.FC = () => {
         <title>HTML Elements Reference</title>
       </head>
 
-      <h1>Physical Security Fundamentals</h1>
+      <h1>Phishing and Social Engineering</h1>
 
       <div className="carousel w-full">
         {/* Slide 1 */}
@@ -23,7 +22,7 @@ const CourseListing1: React.FC = () => {
           <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
             <button
               className="btn btn-error p-3 pointer-events-auto"
-              onClick={() => navigate("/video1")}
+              onClick={() => navigate("/video3")}
             >
               Video
             </button>
@@ -114,4 +113,4 @@ const CourseListing1: React.FC = () => {
   );
 };
 
-export default CourseListing1;
+export default CourseListing3;

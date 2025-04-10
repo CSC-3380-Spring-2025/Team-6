@@ -7,7 +7,7 @@ const VideoOne: React.FC = () => {
         <iframe
           width="420"
           height="315"
-          src="https://www.youtube.com/embed/NwQPDUlJKiI?si=FJ8cSRM6IYZKZDAW"
+          src="https://www.youtube.com/embed/xUp5S0nBnfc?si=KY0udN5Fz2wBWZ9x"
         ></iframe>
       </figure>
       <div className="card-body">

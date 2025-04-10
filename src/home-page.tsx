@@ -102,7 +102,7 @@ const HomePage: React.FC = () => {
           style={{ backgroundImage: `url('/greenbackground.jpeg')` }}
         >
           <h1 className="text-4xl font-bold mb-4">
-            Physical Security Fundamentals
+            Password Security
           </h1>
           <p className="max-w-md text-center mb-6">
             Understand the physical aspects of cybersecurity, from locks to
@@ -121,7 +121,7 @@ const HomePage: React.FC = () => {
           className="h-screen w-full p-0 m-0 flex flex-col justify-center items-center bg-cover bg-center text-white"
           style={{ backgroundImage: `url('/dots.jpg')` }}
         >
-          <h1 className="text-4xl font-bold mb-4">Phishing</h1>
+          <h1 className="text-4xl font-bold mb-4">Physical Security</h1>
           <p className="max-w-md text-center mb-6">
             Learn how phishing works, how to detect it, and how to protect
             yourself and others from social engineering attacks.
@@ -140,7 +140,7 @@ const HomePage: React.FC = () => {
           style={{ backgroundImage: `url('/htmlbackground.png')` }}
         >
           <h1 className="text-4xl font-bold mb-4">
-            Social Engineering Awareness
+            Phishing and Social Engineering
           </h1>
           <p className="max-w-md text-center mb-6">
             Explore how attackers manipulate people and learn best practices for
