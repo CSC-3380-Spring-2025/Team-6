@@ -15,6 +15,7 @@ import QuizFramework3 from "./course-listing-pages/phishing-and-social-engineeri
 import MatchingGame1 from "./course-listing-pages/password-security/matching-game1";
 import MatchingGame2 from "./course-listing-pages/physical-security/matching-game2";
 import MatchingGame3 from "./course-listing-pages/phishing-and-social-engineering/matching-game3";
+import ProfilePage from "./ProfilePage";
 
 const App: React.FC = () => {
   return (
@@ -22,7 +23,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<AuthPage />} />
-
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/courselisting1" element={<CourseListing1/>} />
         <Route path="/courselisting2" element={<CourseListing2/>} />
         <Route path="/courselisting3" element={<CourseListing3/>} />
