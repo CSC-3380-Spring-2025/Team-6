@@ -5,68 +5,156 @@ const HomePage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-gray-100 p-4">
-      {/* Logo Section */}
-      <div className="flex justify-center items-center w-100 mt-1 mb-10">
-        <img src="CyberLogo.png" className="w-100 h-auto" alt="Cyber Logo" />
-        <div className="absolute top-0 right-0 flex m-4">
-          <button
-            className="btn btn-outline btn-error p-3"
-            onClick={() => navigate("/login")}
-          >
-            Login
-          </button>
+    <div className="flex flex-col items-center min-h-screen bg-black p-4">
+      {/* Navbar */}
+      <div className="navbar shadow-sm h-13 top-0 fixed z-20 bg-neutral bg-opacity-80">
+        <div className="navbar-start">
+          <div className="dropdown">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {" "}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h7"
+                />{" "}
+              </svg>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-40 p-2 shadow"
+            >
+              <li>
+                <a>Homepage</a>
+              </li>
+              <li>
+                <a>About</a>
+              </li>
+              <li>
+                <a>Contacts</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          className="navbar-center"
+          role="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          <img
+            src="CyberLogo.png"
+            className="w-100 h-auto cursor-pointer"
+            alt="Cyber Logo"
+          />
+        </div>
+
+        <div className="navbar-end">
+          <div className="dropdown dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full">
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                />
+              </div>
+            </div>
+            <ul
+  tabIndex={0}
+  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+>
+  <li>
+    <a onClick={() => navigate("/profile")}>Profile</a>
+  </li>
+  <li>
+    <a>Settings</a>
+  </li>
+  <li>
+    <a>Logout</a>
+  </li>
+</ul>
+
+          </div>
         </div>
       </div>
 
-      {/* Navigation Bar */}
-      <div className="flex justify-center items-center gap-6 mb-6">
-        <a
-          className="text-lg font-bold text-black hover:text-blue-600 transition"
-          href="url"
+      {/* Section Buttons/Scrollable */}
+      <div className="flex flex-col min-h-screen w-full bg-gray-100 p-0 m-0 z-0">
+        {/* Section 1 */}
+        <section
+          className="h-screen w-full p-0 m-0 flex flex-col justify-center items-center bg-cover bg-center text-white"
+          style={{ backgroundImage: `url('/greenbackground.jpeg')` }}
         >
-          Home
-        </a>
-        <a
-          className="text-lg font-bold text-black hover:text-blue-600 transition"
-          href="url"
-        >
-          Courses
-        </a>
-        <a
-          className="text-lg font-bold text-black hover:text-blue-600 transition"
-          href="url"
-        >
-          About
-        </a>
-      </div>
+          <h1 className="text-4xl font-bold mb-4">
+            Password Security
+          </h1>
+          <p className="max-w-md text-center mb-6">
+            Understand the physical aspects of cybersecurity, from locks to
+            human presence. Dive into real-world examples and security design.
+          </p>
+          <button
+            className="px-6 py-3 bg-rose-600 hover:bg-rose-700 rounded-lg font-semibold transition transform hover:scale-105"
+            onClick={() => navigate("/courselisting1")}
+          >
+            Enter
+          </button>
+        </section>
 
-      {/* Section Buttons */}
-      <div className="flex flex-col gap-6 items-center">
-        <button
-          className="w-80 h-14 bg-rose-500 text-white font-bold text-lg rounded-lg hover:bg-rose-600 transition transform hover:scale-105"
-          onClick={() => navigate("/courselisting1")}
+        {/* Section 2 */}
+        <section
+          className="h-screen w-full p-0 m-0 flex flex-col justify-center items-center bg-cover bg-center text-white"
+          style={{ backgroundImage: `url('/dots.jpg')` }}
         >
-          Physical Security Fundamentals
-        </button>
+          <h1 className="text-4xl font-bold mb-4">Physical Security</h1>
+          <p className="max-w-md text-center mb-6">
+            Learn how phishing works, how to detect it, and how to protect
+            yourself and others from social engineering attacks.
+          </p>
+          <button
+            className="px-6 py-3 bg-rose-600 hover:bg-rose-700 rounded-lg font-semibold transition transform hover:scale-105"
+            onClick={() => navigate("/courselisting2")}
+          >
+            Enter
+          </button>
+        </section>
 
-        <button
-          className="w-80 h-14 bg-rose-500 text-white font-bold text-lg rounded-lg hover:bg-rose-600 transition transform hover:scale-105"
-          onClick={() => navigate("/courselisting2")}
+        {/* Section 3 */}
+        <section
+          className="h-screen w-full p-0 m-0 flex flex-col justify-center items-center bg-cover bg-center text-white"
+          style={{ backgroundImage: `url('/htmlbackground.png')` }}
         >
-          Phishing
-        </button>
-
-        <button
-          className="w-80 h-14 bg-rose-500 text-white font-bold text-lg rounded-lg hover:bg-rose-600 transition transform hover:scale-105"
-          onClick={() => navigate("/courselisting3")}
-        >
-          Social Engineering Awareness
-        </button>
+          <h1 className="text-4xl font-bold mb-4">
+            Phishing and Social Engineering
+          </h1>
+          <p className="max-w-md text-center mb-6">
+            Explore how attackers manipulate people and learn best practices for
+            staying alert in various scenarios.
+          </p>
+          <button
+            className="px-6 py-3 bg-rose-600 hover:bg-rose-700 rounded-lg font-semibold transition transform hover:scale-105"
+            onClick={() => navigate("/courselisting3")}
+          >
+            Enter
+          </button>
+        </section>
       </div>
 
       {/* Footer Section */}
-      <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content items-center p-4 fixed bottom-0 left-0 w-full z-20">
+      <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content items-center p-4 bottom-0 left-0 w-full z-20">
         <aside className="grid-flow-col items-center">
           <svg
             width="36"

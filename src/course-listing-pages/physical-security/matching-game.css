@@ -1,54 +1,54 @@
 body {
-    background-color: darkred;
-  }
-  
-  .matching-game {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    color: white;
-  }
-  
-  h2, h3 {
-    margin-bottom: 10px;
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    justify-content: center;
-    max-width: 600px;
-    margin: 20px auto;
-  }
-  
-  .card {
-    padding: 15px;
-    background: lightgray;
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .card:hover {
-    background: darkgray;
-  }
-  
-  .matched {
-    background: lightgreen;
-    pointer-events: none;
-  }
-  .incorrect {
-    background: red !important;
-    color: white !important;
-    animation: shake 0.3s ease-in-out;
-  }
-  
-  /* Shake animation for incorrect matches */
-  @keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
-    100% { transform: translateX(0); }
-  }
+  background-color: darkred;
+}
+
+.matching-game {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+h2, h3 {
+  margin-bottom: 10px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.card {
+  padding: 15px;
+  background: lightgray;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.card:hover {
+  background: darkgray;
+}
+
+.matched {
+  background: lightgreen;
+  pointer-events: none;
+}
+.incorrect {
+  background: red !important;
+  color: white !important;
+  animation: shake 0.3s ease-in-out;
+}
+
+/* Shake animation for incorrect matches */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}

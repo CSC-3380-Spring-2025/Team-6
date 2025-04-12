@@ -12,7 +12,31 @@ const CourseListing1: React.FC = () => {
         <title>HTML Elements Reference</title>
       </head>
 
-      <h1>Physical Security Fundamentals</h1>
+      <h1>Password Security</h1>
+      
+      <div>
+        <p>
+        Create and Use Strong Passwords
+        Passwords are the keys to safeguarding your digital and online life. They are your first line of defense. And knowing how to create and store strong passwords is one of the most critical aspects of everyday cybersecurity.
+
+        Protect your passwords like you'd protect your house keys. Of course, maintaining your password collection is frustrating for many of us (until you start using a password manager). But we’re here to help!  
+        While creating, storing, and remembering passwords can feel overwhelming, they remain your first line of defense against cybercriminals and data breaches. Fortunately, free, secure, and user-friendly password managers have made it easier than ever to maintain strong passwords. You can work to secure your online presence with just a few simple steps today.
+        The power of long, unique, and complex passwords  
+        For maximum security, remember three principles: 
+        1. Long 
+        Passwords should be at least 16 characters long. The longer your password, the longer it takes for hackers to crack it using brute force techniques. Right now, an eight-character password takes a few minutes for hacker software to guess by trying every combination of letters, numbers, and symbols. A 16-character password takes a billion years to guess!  
+        2. Unique 
+        Each account should have a unique password. If you reuse passwords, don’t feel ashamed! Reusing passwords is a bad habit many of us are guilty of, but you can start changing your habits today! Reusing passwords across multiple accounts can cause huge headaches. If one account is compromised, unique passwords ensure your other accounts remain secure. Small tweaks like adding a number or a special character aren’t enough; each password should be entirely distinct. You can use a password manager to create and store unique passwords for all your accounts! 
+        3. Complex 
+        Passwords should include a mix of uppercase and lowercase letters, numbers, and special characters (like @, !, or $). Some platforms even allow spaces. The strongest passwords are a long string of random characters, not identifiable words, names, or dates. However, even if your passwords are random, you must ensure they are each at least 16 characters long! 
+        Let’s review! 
+        Each of your passwords should be: 
+        Unique to the account 
+        At least 16 characters long 
+        A random jumble of letters, numbers, and symbols.  
+        By using strong passwords, you’re taking a crucial step toward protecting your digital identity. 
+        </p>
+      </div>
 
       <div className="carousel w-full">
         {/* Slide 1 */}
