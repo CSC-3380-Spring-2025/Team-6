@@ -16,6 +16,11 @@ import MatchingGame1 from "./course-listing-pages/password-security/matching-gam
 import MatchingGame2 from "./course-listing-pages/physical-security/matching-game2";
 import MatchingGame3 from "./course-listing-pages/phishing-and-social-engineering/matching-game3";
 import ProfilePage from "./ProfilePage";
+import ResourceLibrary from "./resource-library/resource-library";
+import ResourceLibraryPage1 from "./resource-library/module-1-passwords/page1";
+import ResourceLibraryPage2 from "./resource-library/module-2-physical-security/page2";
+import ResourceLibraryPage3 from "./resource-library/module-3-social-engineering-awareness/page3";
+
 
 const App: React.FC = () => {
   return (
@@ -48,6 +53,11 @@ const App: React.FC = () => {
         <Route path="/matching1" element={<MatchingGame1/>} />
         <Route path="/matching2" element={<MatchingGame2/>} />
         <Route path="/matching3" element={<MatchingGame3/>} />
+
+        <Route path="/resource-library" element={<ResourceLibrary />} />
+        <Route path="/resource-library/module-1-passwords" element={<ResourceLibraryPage1 />} />
+        <Route path="/resource-library/module-2-physical-security" element={<ResourceLibraryPage2 />} />
+        <Route path="/resource-library/module-3-social-engineering-awareness" element={<ResourceLibraryPage3 />} />
         
       </Routes>
     </Router>
