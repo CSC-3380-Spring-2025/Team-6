@@ -81,7 +81,7 @@ const HomePage: React.FC = () => {
     <a onClick={() => navigate("/profile")}>Profile</a>
   </li>
   <li>
-    <a>Settings</a>
+  <a onClick={() => navigate("/settings")}>Settings</a>
   </li>
   <li>
     <a>Logout</a>
