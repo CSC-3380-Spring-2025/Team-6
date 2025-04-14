@@ -5,7 +5,7 @@ const HomePage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-black p-4">
+    <div className="flex flex-col items-center min-h-screen w-screen bg-black p-4">
       {/* Navbar */}
       <div className="navbar shadow-sm h-13 top-0 fixed z-20 bg-neutral bg-opacity-80">
         <div className="navbar-start">
@@ -134,8 +134,8 @@ const HomePage: React.FC = () => {
 
         {/* Section 3 */}
         <section
-          className="h-screen w-full p-0 m-0 flex flex-col justify-center items-center bg-cover bg-center text-white"
-          style={{ backgroundImage: `url('/htmlbackground.png')` }}
+          className="h-screen w-full p-0 m-0 flex flex-col justify-center items-center bg-cover bg-center  text-white"
+          style={{ backgroundImage: `url('/htmlbackgroundd.jpeg')` }}
         >
           <h1 className="text-4xl font-bold mb-4">
             Phishing and Social Engineering
