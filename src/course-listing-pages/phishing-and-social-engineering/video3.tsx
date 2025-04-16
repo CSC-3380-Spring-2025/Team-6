@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const VideoTwo: React.FC = () => {
+const VideoThree: React.FC = () => {
   const navigate = useNavigate();
 
   return (
@@ -10,7 +10,7 @@ const VideoTwo: React.FC = () => {
         <iframe
           width="420"
           height="315"
-          src="https://www.youtube.com/embed/YtT8q2mUM9c?si=16H9Yr9gMtr6Cbfm"
+          src="https://www.youtube.com/embed/v7VTJhkJUUY?si=-KhGz9suIBaZUEHG"
         ></iframe>
       </figure>
       <div className="card-body">
@@ -29,4 +29,4 @@ const VideoTwo: React.FC = () => {
   );
 };
 
-export default VideoTwo;
+export default VideoThree;
