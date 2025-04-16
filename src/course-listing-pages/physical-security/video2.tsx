@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const VideoThree: React.FC = () => {
+    const navigate = useNavigate();
+
   return (
     <div data-theme="cybertheme" className="card bg-base-100 w-96 shadow-xl">
       <figure>
@@ -11,14 +14,15 @@ const VideoThree: React.FC = () => {
         ></iframe>
       </figure>
       <div className="card-body">
-        <h2 className="card-title">LEBRON JAMES VIDEO</h2>
+        <h2 className="card-title">Physical Security Video</h2>
         <p>
-          This is where we can information about the video, or if possible add
-          the transcript!
+          Learn how Physical Security improves Cybersecurity
         </p>
         <div className="card-actions justify-end">
-          <button className="btn btn-outline btn-error p-3">Back</button>
-          <button className="btn btn-outline btn-error p-3">Next</button>
+        <button className="btn btn-outline btn-error p-3"
+          onClick={() => navigate("/courselisting2")}>
+            Finish
+          </button>
         </div>
       </div>
     </div>
