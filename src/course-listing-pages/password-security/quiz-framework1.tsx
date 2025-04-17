@@ -12,8 +12,8 @@ const QuizFramework1: React.FC = () => {
     const questions = [
         {
             question: "What is the minimum number of characters a password should have?",
-            options: ["5", "10", "12", "8"],
-            answer: "12",
+            options: ["12", "10", "16", "8"],
+            answer: "16",
         },
         {
             question: "Which password is the strongest?",
@@ -24,6 +24,11 @@ const QuizFramework1: React.FC = () => {
             question: "Which of the following characters should be in a strong password?",
             options: ["lowercase letters", "special characters", "numbers", "All of the above"],
             answer: "All of the above",
+        },
+        {
+            question: "You should use the same password for all your accounts.",
+            options: ["True", "False"],
+            answer: "False",
         },
     ];
 

@@ -127,7 +127,7 @@ const CourseListing1: React.FC = () => {
           <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
             <button
               className="btn btn-error p-3 pointer-events-auto"
-              onClick={() => navigate("/video1")}
+              onClick={() => navigate("/video2")}
             >
               Video
             </button>
@@ -151,7 +151,7 @@ const CourseListing1: React.FC = () => {
           <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
             <button
               className="btn btn-error p-3 pointer-events-auto"
-              onClick={() => navigate("/reading1")}
+              onClick={() => navigate("/reading2")}
             >
               Reading
             </button>
@@ -175,7 +175,7 @@ const CourseListing1: React.FC = () => {
           <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
             <button
               className="btn btn-error p-3 pointer-events-auto"
-              onClick={() => navigate("/matching1")}
+              onClick={() => navigate("/matching2")}
             >
               Matching Game
             </button>
@@ -199,7 +199,7 @@ const CourseListing1: React.FC = () => {
           <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
             <button
               className="btn btn-error p-3 pointer-events-auto"
-              onClick={() => navigate("/quiz1")}
+              onClick={() => navigate("/quiz2")}
             >
               Quiz
             </button>

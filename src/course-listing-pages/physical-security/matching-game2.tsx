@@ -9,11 +9,12 @@ interface Card {
 }
 
 const initialPairs = [
-  { term: "1", definition: "1 ans" },
-  { term: "2", definition: "2 ans" },
-  { term: "3", definition: "3 ans" },
-  { term: "4", definition: "4 ans" },
-  { term: "5", definition: "5 ans" },
+  { term: "Access Control", definition: "Restricts entry to authorized individuals only" },
+  { term: "Cyber-Physical System", definition: "A system where physical devices are interconnected with digital systems" },
+  { term: "IoT Device", definition: "A smart physical object connected to the internet" },
+  { term: "Intrusion Detection System	", definition: "Alerts teams of unauthorized access attempts" },
+  { term: "Physical Attack Vector", definition: "A method of breaching security through physical means" },
+  { term: "Surveillance Systems	", definition: "Monitors and records activities to deter and investigate threats" },
 ];
 
 const shuffleArray = (array: any[]) => {

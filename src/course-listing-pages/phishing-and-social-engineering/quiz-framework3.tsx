@@ -11,19 +11,24 @@ const QuizFramework3: React.FC = () => {
 
     const questions = [
         {
-            question: "Social engineering question answer 12?",
-            options: ["5", "10", "12", "8"],
-            answer: "12",
+            question: "What the goal of social engineering?",
+            options: ["To physically damage a network", "To upgrade software on a system", "To increase website traffic", "To manipulate people into revealing information"],
+            answer: "To manipulate people into revealing information",
         },
         {
-            question: "Social engineering question answer the weird one?",
-            options: ["ILoveDog$", "password333", ":Fz7!397$pm>", "123456"],
-            answer: ":Fz7!397$pm>",
+            question: "What is phishing?",
+            options: ["A scam where attackers trick people into giving up personal information", "A method of creating strong passwords", "A type of firewall", "A secure way to share login credentials"],
+            answer: "A scam where attackers trick people into giving up personal information",
         },
         {
-            question: "Social engineering question answer all of the above?",
-            options: ["lowercase letters", "special characters", "numbers", "All of the above"],
+            question: "Which of the following is a common sign of a phishing email?",
+            options: ["It’s sent from your boss’s personal email", "It contains spelling mistakes and urgent requests", "It has a generic greeting like “Dear Customer”", "All of the above"],
             answer: "All of the above",
+        },
+        {
+            question: "What should you do if you receive a suspicious message asking for your password?",
+            options: ["Reply and ask for more information", "Click the link to verify", "Report it to your IT/security team", "Forward it to your friends"],
+            answer: "Report it to your IT/security team",
         },
     ];
 
