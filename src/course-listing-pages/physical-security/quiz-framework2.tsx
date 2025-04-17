@@ -47,15 +47,27 @@ const QuizFramework2: React.FC = () => {
         }
     };
 
+    const handleRetry = () => {
+        setScore(0);
+        setCurrentQuestion(0);
+        setShowResult(false);
+    };
+
     return (
         <div className="quiz-container">
             {showResult ? (
                 <div className="quiz-box result-container">
                     <h2 className="question-title">Quiz Completed!</h2>
                     <p>Your Score: {score} / {questions.length}</p>
-                    <button className="restart-button" onClick={() => navigate("/")}>
-                        Home
-                    </button>
+                    {score === questions.length ? (
+                        <button className="finish-button" onClick={() => navigate(-1)}>
+                            Finish
+                        </button>
+                    ) : (
+                        <button className="retry-button" onClick={handleRetry}>
+                            Retry
+                        </button>
+                    )}
                 </div>
             ) : (
                 <div className="quiz-box">

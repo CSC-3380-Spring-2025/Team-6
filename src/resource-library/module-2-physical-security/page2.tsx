@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ Import the hook
+import { useNavigate } from "react-router-dom"; 
 import './resource-library.css';
 
 interface Comment {
@@ -9,7 +9,7 @@ interface Comment {
 }
 
 export default function Module2Page() {
-  const navigate = useNavigate(); // ✅ Create a navigation function
+  const navigate = useNavigate(); 
 
   const [comments, setComments] = useState<Comment[]>([]);
   const [selectedText, setSelectedText] = useState("");
@@ -55,13 +55,14 @@ export default function Module2Page() {
 
   return (
     <div className="resource-library" onMouseUp={handleMouseUp}>
-      {/* ✅ Back Button */}
+      {/*Back Button */}
       <button className="back-button" onClick={() => navigate("/")}>
         ← Back to Modules
       </button>
 
       <div className="articles">
         <h2>What is physical security and how does it work?</h2>
+        <h2>Source: TechTarget</h2>
         <p>
         Physical security protects personnel, hardware, software, networks, facilities and data from physical actions and events that could cause serious loss or damage to an enterprise, agency or institution. This includes protection from fire, flood, natural disasters, burglary, theft, vandalism and terrorism. While most of these events are covered by insurance, physical security's prioritization of damage prevention avoids the time, money and resources lost because of these events.
         </p>

@@ -7,10 +7,10 @@
     background: linear-gradient(to bottom right, rgb(74, 10, 10), rgb(82, 11, 11));
     padding: 20px;
     color: black;
-  }
+}
   
-  /* Quiz Box */
-  .quiz-box {
+/* Quiz Box */
+.quiz-box {
     background: white;
     padding: 20px;
     width: 400px;
@@ -18,19 +18,19 @@
     font-family: 'Arial', sans-serif;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  }
+}
   
-  /* Question Text */
-  .question-title {
+/* Question Text */
+.question-title {
     font-size: 1.5rem;
     font-weight: bold;
     color: black;
     margin-bottom: 15px;
     font-family: 'Arial', sans-serif;
-  }
+}
   
-  /* Option Buttons */
-  .option-button {
+/* Option Buttons */
+.option-button {
     padding: 12px 16px;
     font-size: 1rem;
     background: #D3D3D3;
@@ -39,18 +39,19 @@
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
-  }
+}
   
-  .option-button:hover {
+.option-button:hover {
     background: #A9A9A9;
-  }
+}
   
-  /* Results Section */
-  .result-container {
+/* Results Section */
+.result-container {
     text-align: center;
-  }
+}
   
-  .restart-button {
+/* Retry Button */
+.retry-button {
     margin-top: 20px;
     padding: 12px 16px;
     font-size: 1rem;
@@ -60,8 +61,25 @@
     border-radius: 10px;
     cursor: pointer;
     transition: 0.3s;
-  }
+}
   
-  .restart-button:hover {
+.retry-button:hover {
     background: darkred;
-  }
+}
+  
+/* Finish Button */
+.finish-button {
+    margin-top: 20px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+.finish-button:hover {
+    background: darkgreen;
+}
