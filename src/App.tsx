@@ -16,6 +16,7 @@ import QuizFramework3 from "./course-listing-pages/phishing-and-social-engineeri
 import MatchingGame1 from "./course-listing-pages/password-security/matching-game1";
 import MatchingGame2 from "./course-listing-pages/physical-security/matching-game2";
 import MatchingGame3 from "./course-listing-pages/phishing-and-social-engineering/matching-game3";
+import PhishingGame from "./course-listing-pages/phishing-and-social-engineering/phishing-game";
 import ProfilePage from "./ProfilePage";
 import ResourceLibrary from "./resource-library/resource-library";
 import ResourceLibraryPage1 from "./resource-library/module-1-passwords/page1";
@@ -55,6 +56,8 @@ const App: React.FC = () => {
         <Route path="/matching1" element={<MatchingGame1/>} />
         <Route path="/matching2" element={<MatchingGame2/>} />
         <Route path="/matching3" element={<MatchingGame3/>} />
+        
+        <Route path="/phishing-game" element={<PhishingGame />} />
 
         <Route path="/resource-library" element={<ResourceLibrary />} />
         <Route path="/resource-library/module-1-passwords" element={<ResourceLibraryPage1 />} />
