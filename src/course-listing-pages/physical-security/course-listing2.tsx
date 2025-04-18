@@ -117,6 +117,13 @@ const CourseListing1: React.FC = () => {
         </p>
       </div>
 
+      <button
+        className="btn btn-error p-3 pointer-events-auto"
+        onClick={() => navigate("/")}
+      >
+        Finish
+      </button>
+
       <div className="flex carousel w-3/4 mx-auto h-64 my-10">
         {/* Slide 1 */}
         <div id="slide1" className="carousel-item relative w-full">
