@@ -11,19 +11,24 @@ const QuizFramework2: React.FC = () => {
 
     const questions = [
         {
-            question: "Phishing question answer 12?",
-            options: ["5", "10", "12", "8"],
-            answer: "12",
+            question: "Why is it important to integrate physical security with cybersecurity?",
+            options: ["It reduces the number of employees needed", "It simplifies budgeting", "It improves threat detection, response, and overall security", "It replaces the need for security personnel"],
+            answer: "It improves threat detection, response, and overall security",
         },
         {
-            question: "Phishing question answer the weird one?",
-            options: ["ILoveDog$", "password333", ":Fz7!397$pm>", "123456"],
-            answer: ":Fz7!397$pm>",
+            question: "What is a cyberattack on a physical system?",
+            options: ["A hacking attempt that only affects data", "A digital threat targeting physical infrastructure like access control systems", "A natural disaster affecting a server room", "A power outage causing data loss"],
+            answer: "A digital threat targeting physical infrastructure like access control systems",
         },
         {
-            question: "Phishing question answer all of the above?",
-            options: ["lowercase letters", "special characters", "numbers", "All of the above"],
-            answer: "All of the above",
+            question: "Which of the following is considered part of perimeter security?",
+            options: ["Keycard access systems", "Fire alarms", "Fences and vehicle barriers", "Security cameras"],
+            answer: "Fences and vehicle barriers",
+        },
+        {
+            question: "Physical access to servers and network hardware can lead to cyberattacks.",
+            options: ["True", "False"],
+            answer: "True",
         },
     ];
 
@@ -42,15 +47,27 @@ const QuizFramework2: React.FC = () => {
         }
     };
 
+    const handleRetry = () => {
+        setScore(0);
+        setCurrentQuestion(0);
+        setShowResult(false);
+    };
+
     return (
         <div className="quiz-container">
             {showResult ? (
                 <div className="quiz-box result-container">
                     <h2 className="question-title">Quiz Completed!</h2>
                     <p>Your Score: {score} / {questions.length}</p>
-                    <button className="restart-button" onClick={() => navigate("/")}>
-                        Home
-                    </button>
+                    {score === questions.length ? (
+                        <button className="finish-button" onClick={() => navigate(-1)}>
+                            Finish
+                        </button>
+                    ) : (
+                        <button className="retry-button" onClick={handleRetry}>
+                            Retry
+                        </button>
+                    )}
                 </div>
             ) : (
                 <div className="quiz-box">

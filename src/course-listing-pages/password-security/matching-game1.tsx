@@ -9,11 +9,12 @@ interface Card {
 }
 
 const initialPairs = [
-  { term: "1", definition: "1 ans" },
-  { term: "2", definition: "2 ans" },
-  { term: "3", definition: "3 ans" },
-  { term: "4", definition: "4 ans" },
-  { term: "5", definition: "5 ans" },
+  { term: "Strong Password", definition: "Hb5kG!v#@" },
+  { term: "Weak Password", definition: "1234" },
+  { term: "Password Manager", definition: "Password-storing tool" },
+  { term: "Security Question", definition: "A question used to verify identity" },
+  { term: "Brute Force Attack", definition: "Attack used for guessing passwords" },
+  { term: "Password Reuse", definition: "Using the same password for multiple accounts" },
 ];
 
 const shuffleArray = (array: any[]) => {

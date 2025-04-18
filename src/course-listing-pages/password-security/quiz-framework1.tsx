@@ -12,8 +12,8 @@ const QuizFramework1: React.FC = () => {
     const questions = [
         {
             question: "What is the minimum number of characters a password should have?",
-            options: ["5", "10", "12", "8"],
-            answer: "12",
+            options: ["12", "10", "16", "8"],
+            answer: "16",
         },
         {
             question: "Which password is the strongest?",
@@ -24,6 +24,11 @@ const QuizFramework1: React.FC = () => {
             question: "Which of the following characters should be in a strong password?",
             options: ["lowercase letters", "special characters", "numbers", "All of the above"],
             answer: "All of the above",
+        },
+        {
+            question: "You should use the same password for all your accounts.",
+            options: ["True", "False"],
+            answer: "False",
         },
     ];
 
@@ -42,15 +47,27 @@ const QuizFramework1: React.FC = () => {
         }
     };
 
+    const handleRetry = () => {
+        setScore(0);
+        setCurrentQuestion(0);
+        setShowResult(false);
+    };
+
     return (
         <div className="quiz-container">
             {showResult ? (
                 <div className="quiz-box result-container">
                     <h2 className="question-title">Quiz Completed!</h2>
                     <p>Your Score: {score} / {questions.length}</p>
-                    <button className="restart-button" onClick={() => navigate("/")}>
-                        Home
-                    </button>
+                    {score === questions.length ? (
+                        <button className="finish-button" onClick={() => navigate(-1)}>
+                            Finish
+                        </button>
+                    ) : (
+                        <button className="retry-button" onClick={handleRetry}>
+                            Retry
+                        </button>
+                    )}
                 </div>
             ) : (
                 <div className="quiz-box">

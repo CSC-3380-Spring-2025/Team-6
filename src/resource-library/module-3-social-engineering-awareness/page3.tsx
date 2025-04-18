@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ Import the hook
+import { useNavigate } from "react-router-dom"; 
 import './resource-library.css';
 
 interface Comment {
@@ -9,7 +9,7 @@ interface Comment {
 }
 
 export default function Module3Page() {
-  const navigate = useNavigate(); // ✅ Create a navigation function
+  const navigate = useNavigate(); 
 
   const [comments, setComments] = useState<Comment[]>([]);
   const [selectedText, setSelectedText] = useState("");
@@ -55,13 +55,14 @@ export default function Module3Page() {
 
   return (
     <div className="resource-library" onMouseUp={handleMouseUp}>
-      {/* ✅ Back Button */}
+      {/*Back Button */}
       <button className="back-button" onClick={() => navigate("/")}>
         ← Back to Modules
       </button>
 
       <div className="articles">
         <h2>Understanding Social Engineering Tactics: 8 Attacks to Watch Out For</h2>
+        <h2>Source: Fortra</h2>
         <p>
         Social engineering is a dangerous weapon many cybercriminals use to achieve their nefarious goals. It leverages psychological manipulation to deceive individuals into divulging confidential or personal information. Unlike traditional hacking, which relies on exploiting software vulnerabilities, social engineering targets human vulnerabilities.
         </p>

@@ -9,11 +9,12 @@ interface Card {
 }
 
 const initialPairs = [
-  { term: "1", definition: "1 ans" },
-  { term: "2", definition: "2 ans" },
-  { term: "3", definition: "3 ans" },
-  { term: "4", definition: "4 ans" },
-  { term: "5", definition: "5 ans" },
+  { term: "Phishing", definition: "Tricking users into giving up personal information" },
+  { term: "Pretexting", definition: "Creating a fabricated scenario to steal information" },
+  { term: "Baiting", definition: "Offering something enticing to trick users" },
+  { term: "Social Engineering", definition: "Manipulating people to reveal information or perform actions" },
+  { term: "Spear Phishing", definition: "A phishing attack aimed at a specific target" },
+  { term: "Impersonation", definition: "Pretending to be someone trustworthy to gain information" },
 ];
 
 const shuffleArray = (array: any[]) => {
