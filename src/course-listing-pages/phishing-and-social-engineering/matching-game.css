@@ -3,7 +3,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Makes the game centered vertically */
+    min-height: 100vh; /* Makes the game centered vertically */
     margin: 0;
   }
   

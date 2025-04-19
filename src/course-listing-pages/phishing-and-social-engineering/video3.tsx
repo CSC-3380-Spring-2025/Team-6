@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const VideoOne: React.FC = () => {
+const VideoThree: React.FC = () => {
   const navigate = useNavigate();
 
   return (
@@ -10,17 +10,17 @@ const VideoOne: React.FC = () => {
         <iframe
           width="420"
           height="315"
-          src="https://www.youtube.com/embed/xUp5S0nBnfc?si=KY0udN5Fz2wBWZ9x"
+          src="https://www.youtube.com/embed/v7VTJhkJUUY?si=-KhGz9suIBaZUEHG"
         ></iframe>
       </figure>
       <div className="card-body">
-        <h2 className="card-title">Password Security Video</h2>
+        <h2 className="card-title">Social Engineering Video</h2>
         <p>
-          Learn the general tips to make a strong password and how to save your accounts.
+          Learn how people can be socially engineered into giving away important information.
         </p>
         <div className="card-actions justify-end">
-          <button className="btn btn-outline btn-error p-3"
-          onClick={() => navigate("/courselisting1")}>
+        <button className="btn btn-outline btn-error p-3"
+          onClick={() => navigate("/courselisting3")}>
             Finish
           </button>
         </div>
@@ -29,4 +29,4 @@ const VideoOne: React.FC = () => {
   );
 };
 
-export default VideoOne;
+export default VideoThree;
