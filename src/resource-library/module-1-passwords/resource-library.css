@@ -1,0 +1,103 @@
+.resource-library {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    padding: 32px;
+    background-color: #f5f7fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+  }
+  
+  .articles {
+    flex: 1;
+    padding: 24px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    line-height: 1.6;
+    font-size: 16px;
+    color: #333;
+    position: relative;
+  }
+  
+  .comment-box {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: #ffffff;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .comment-box textarea {
+    width: 100%;
+    height: 70px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-family: inherit;
+    resize: vertical;
+  }
+  
+  .comment-box button {
+    background-color: #790000;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .comment-box button:hover {
+    background-color: #790000;
+  }
+  
+  .comments-sidebar {
+    width: 30%;
+    background-color: #ffffff;
+    border-left: 2px solid #ddd;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: inset 4px 0 6px -4px rgba(0, 0, 0, 0.04);
+    overflow-y: auto;
+  }
+  
+  .comments-sidebar h3 {
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .comment-item {
+    margin-bottom: 16px;
+    padding: 12px;
+    background-color: #f1f5ff;
+    border-left: 4px solid #790000;
+    border-radius: 6px;
+  }
+  
+  .highlighted-text {
+    background-color: #ffff99; /* Sticky highlight style */
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-weight: bold;
+  }
+  .back-button {
+    margin: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #e2e8f0;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .back-button:hover {
+    background-color: #cbd5e1;
+  }

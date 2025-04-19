@@ -1,30 +1,34 @@
 import React, { useState } from "react";
-import "./quiz-framework.css"; // Updated import
+import { useNavigate } from "react-router-dom";
+import "./quiz-framework.css";
 
-interface QuizFrameworkProps {
-    onGoHome: () => void;
-}
-
-const QuizFramework: React.FC<QuizFrameworkProps> = ({ onGoHome }) => {
+const QuizFramework1: React.FC = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
     const [showResult, setShowResult] = useState(false);
 
+    const navigate = useNavigate();
+
     const questions = [
         {
-            question: "Phishing question answer 12?",
-            options: ["5", "10", "12", "8"],
-            answer: "12",
+            question: "What is the minimum number of characters a password should have?",
+            options: ["12", "10", "16", "8"],
+            answer: "16",
         },
         {
-            question: "Phishing question answer the weird one?",
+            question: "Which password is the strongest?",
             options: ["ILoveDog$", "password333", ":Fz7!397$pm>", "123456"],
             answer: ":Fz7!397$pm>",
         },
         {
-            question: "Phishing question answer all of the above?",
+            question: "Which of the following characters should be in a strong password?",
             options: ["lowercase letters", "special characters", "numbers", "All of the above"],
             answer: "All of the above",
+        },
+        {
+            question: "You should use the same password for all your accounts.",
+            options: ["True", "False"],
+            answer: "False",
         },
     ];
 
@@ -43,21 +47,37 @@ const QuizFramework: React.FC<QuizFrameworkProps> = ({ onGoHome }) => {
         }
     };
 
+    const handleRetry = () => {
+        setScore(0);
+        setCurrentQuestion(0);
+        setShowResult(false);
+    };
+
     return (
         <div className="quiz-container">
             {showResult ? (
                 <div className="quiz-box result-container">
                     <h2 className="question-title">Quiz Completed!</h2>
                     <p>Your Score: {score} / {questions.length}</p>
-                    <button className="restart-button" onClick={onGoHome}>
-                        Home
-                    </button>
+                    {score === questions.length ? (
+                        <button className="finish-button" onClick={() => navigate(-1)}>
+                            Finish
+                        </button>
+                    ) : (
+                        <button className="retry-button" onClick={handleRetry}>
+                            Retry
+                        </button>
+                    )}
                 </div>
             ) : (
                 <div className="quiz-box">
                     <h2 className="question-title">{questions[currentQuestion].question}</h2>
                     {questions[currentQuestion].options.map((option) => (
-                        <button key={option} className="option-button" onClick={() => handleAnswer(option)}>
+                        <button
+                            key={option}
+                            className="option-button"
+                            onClick={() => handleAnswer(option)}
+                        >
                             {option}
                         </button>
                     ))}
@@ -67,4 +87,4 @@ const QuizFramework: React.FC<QuizFrameworkProps> = ({ onGoHome }) => {
     );
 };
 
-export default QuizFramework;
+export default QuizFramework1;
