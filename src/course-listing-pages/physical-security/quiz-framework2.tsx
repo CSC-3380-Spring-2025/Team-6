@@ -60,11 +60,11 @@ const QuizFramework2: React.FC = () => {
                     <h2 className="question-title">Quiz Completed!</h2>
                     <p>Your Score: {score} / {questions.length}</p>
                     {score === questions.length ? (
-                        <button className="finish-button" onClick={() => navigate(-1)}>
+                        <button className="btn btn-error p-3 pointer-events-auto" onClick={() => navigate(-1)}>
                             Finish
                         </button>
                     ) : (
-                        <button className="retry-button" onClick={handleRetry}>
+                        <button className="btn btn-error p-3 pointer-events-auto" onClick={handleRetry}>
                             Retry
                         </button>
                     )}

@@ -1,5 +1,5 @@
 body {
-  background-color: darkred;
+  background-color: #72002e; 
 }
 
 .matching-game {
@@ -22,29 +22,38 @@ h2, h3 {
 }
 
 .card {
-  padding: 15px;
-  background: lightgray;
-  border-radius: 5px;
+  padding: 20px;
+  background: #ecf0f1;
+  border-radius: 10px; 
   text-align: center;
   cursor: pointer;
-  transition: background 0.3s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  font-size: 18px;
+  font-weight: bold;
+  color: #502c2c; 
 }
 
 .card:hover {
-  background: darkgray;
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
+  background: #bdc3c7; 
 }
 
 .matched {
-  background: lightgreen;
+  background: #2ecc71; 
+  color: white;
   pointer-events: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
 }
+
 .incorrect {
-  background: red !important;
-  color: white !important;
+  background: #e73c3c; 
+  color: white;
   animation: shake 0.3s ease-in-out;
 }
 
-/* Shake animation for incorrect matches */
+
 @keyframes shake {
   0% { transform: translateX(0); }
   25% { transform: translateX(-5px); }
