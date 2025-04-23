@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ Import the hook
+import { useNavigate } from "react-router-dom"; 
 import './resource-library.css';
 
 interface Comment {
@@ -9,7 +9,7 @@ interface Comment {
 }
 
 export default function Module1Page() {
-  const navigate = useNavigate(); // ✅ Create a navigation function
+  const navigate = useNavigate(); 
 
   const [comments, setComments] = useState<Comment[]>([]);
   const [selectedText, setSelectedText] = useState("");
@@ -55,7 +55,7 @@ export default function Module1Page() {
 
   return (
     <div className="resource-library" onMouseUp={handleMouseUp}>
-      {/* ✅ Back Button */}
+      {/*Back Button */}
       <button className="back-button" onClick={() => navigate("/")}>
         ← Back to Modules
       </button>
