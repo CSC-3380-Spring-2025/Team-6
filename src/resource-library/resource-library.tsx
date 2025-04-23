@@ -9,14 +9,14 @@ export default function ResourceLibrary() {
       <h1 className="text-3xl font-bold mb-8">Choose a Reading to Annotate</h1>
 
       <button
-        onClick={() => navigate("/resource-library/module-1-physical-security-fundamentals")}
+        onClick={() => navigate("/resource-library/module-2-physical-security")}
         className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
       >
         Module 1: Physical Security Fundamentals
       </button>
 
       <button
-        onClick={() => navigate("/resource-library/module-2-passwords")}
+        onClick={() => navigate("/resource-library/module-1-passwords")}
         className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
       >
         Module 2: Password Management
@@ -27,6 +27,13 @@ export default function ResourceLibrary() {
         className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
       >
         Module 3: Social Engineering Awareness
+      </button>
+
+      <button
+        onClick={() => navigate("/")}
+        className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+      >
+        Go Back
       </button>
     </div>
   );
