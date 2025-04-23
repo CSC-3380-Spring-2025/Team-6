@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { Menu, User } from "lucide-react";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ const HomePage = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-full hover:bg-white/10 transition-colors"
             >
-              
+              <Menu className="h-6 w-6 text-white" />
             </button>
             {isMenuOpen && (
               <ul className="absolute left-0 mt-3 w-56 p-2 shadow-xl bg-black/90 backdrop-blur-md rounded-xl z-30 border border-white/10">
@@ -91,7 +92,7 @@ const HomePage = () => {
               onClick={() => setIsProfileOpen(!isProfileOpen)}
               className="p-2 rounded-full hover:bg-white/10 transition-colors"
             >
-
+              <User className="h-6 w-6 text-white" />
             </button>
             {isProfileOpen && (
               <ul className="absolute right-0 mt-3 w-56 p-2 shadow-xl bg-black/90 backdrop-blur-md rounded-xl z-30 border border-white/10">
@@ -153,7 +154,6 @@ const HomePage = () => {
         <section className="relative h-screen w-full flex flex-col justify-center items-center z-10">
           <div className="container mx-auto px-4 flex flex-col items-center">
             <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-
               <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white tracking-tight">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
                   Cyber Security
@@ -199,7 +199,6 @@ const HomePage = () => {
           <div className="container mx-auto px-4">
             <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 max-w-3xl mx-auto">
               <div className="flex flex-col items-center text-center">
-
                 <h1 className="text-4xl font-bold mb-4 text-white">
                   Password Security
                 </h1>
