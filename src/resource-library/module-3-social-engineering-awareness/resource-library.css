@@ -3,7 +3,7 @@
   flex-direction: row;
   gap: 40px;
   padding: 32px;
-  background-color: #f5f7fa;
+  background-color: #72002e;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
 }
@@ -18,6 +18,8 @@
   font-size: 16px;
   color: #333;
   position: relative;
+  max-height: 90vh; /* Limit height to 70% of the viewport */
+  overflow-y: auto; /* Add vertical scroll bar if content overflows */
 }
 
 .comment-box {
@@ -30,6 +32,8 @@
   border-radius: 10px;
   width: 300px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-height: 50vh; /* Limit height to 50% of the viewport */
+  overflow-y: auto; /* Add vertical scroll bar if content overflows */
 }
 
 .comment-box textarea {
@@ -90,7 +94,7 @@
 .back-button {
   margin: 1rem;
   padding: 0.5rem 1rem;
-  background-color: #e2e8f0;
+  background-color: #fc5c7c;
   border: none;
   border-radius: 8px;
   font-weight: bold;

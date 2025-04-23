@@ -28,6 +28,13 @@ export default function ResourceLibrary() {
       >
         Module 3: Social Engineering Awareness
       </button>
+
+      <button
+        onClick={() => navigate("/")}
+        className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+      >
+        Go Back
+      </button>
     </div>
   );
 }
