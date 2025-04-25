@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "./matching-game.css";
 
 interface Card {
@@ -31,6 +32,8 @@ const MatchingGame: React.FC = () => {
   const [gameOver, setGameOver] = useState(false);
   const [startTime, setStartTime] = useState<number | null>(null);
   const [elapsedTime, setElapsedTime] = useState<number>(0);
+
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     const shuffledCards = shuffleArray([
@@ -107,10 +110,20 @@ const MatchingGame: React.FC = () => {
   };
 
   return (
-    <div className="matching-game">
-      <h2>Matching Game</h2>
+    <div className="matching-game bg-red-900">
+      <h2></h2>
       {gameStarted && !gameOver && <h3>Time: {elapsedTime} seconds</h3>}
-      {gameOver && <h3>🎉 You finished in {elapsedTime} seconds! 🎉</h3>}
+      {gameOver && (
+        <>
+          <h3>You finished in {elapsedTime} seconds!</h3>
+          <button
+            className="btn btn-error p-3 pointer-events-auto"
+            onClick={() => navigate(-1)} // Navigate back to the previous page
+          >
+            Finish
+          </button>
+        </>
+      )}
       <div className="grid-container">
         {cards.map((card) => (
           <div
