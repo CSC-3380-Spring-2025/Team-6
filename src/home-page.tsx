@@ -3,6 +3,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Menu, User } from "lucide-react";
+import { signOut } from "firebase/auth";
+import { auth } from "./firebase"; 
+
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -113,13 +116,21 @@ const HomePage = () => {
                   </a>
                 </li>
                 <li>
-                  <a
-                    onClick={() => navigate("/logout")}
-                    className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors cursor-pointer"
-                  >
-                    Logout
-                  </a>
-                </li>
+    <a
+    onClick={async () => {
+      try {
+        await signOut(auth);
+        navigate("/");
+      } catch (error) {
+        console.error("Logout failed:", error);
+      }
+    }}
+    className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors cursor-pointer"
+  >
+    Logout
+  </a>
+</li>
+
               </ul>
             )}
           </div>
