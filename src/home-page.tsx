@@ -245,7 +245,7 @@ const HomePage = () => {
                   </li>
                 </ul>
                 <button
-                  onClick={() => navigate("/courselisting1")}
+                  onClick={() => navigate("/resource-library")}
                   className="px-8 py-4 bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-500 hover:to-rose-400 rounded-xl font-semibold text-white shadow-lg shadow-rose-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/40 flex items-center justify-center gap-2"
                 >
                   Start Learning
