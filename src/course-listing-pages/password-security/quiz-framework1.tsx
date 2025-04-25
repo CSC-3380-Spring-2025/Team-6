@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./quiz-framework.css";
+import "./quiz-framework1.css";
 
 const QuizFramework1: React.FC = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -54,7 +54,7 @@ const QuizFramework1: React.FC = () => {
     };
 
     return (
-        <div className="quiz-container">
+        <div className="quiz1-container">
             {showResult ? (
                 <div className="quiz-box result-container">
                     <h2 className="question-title">Quiz Completed!</h2>
@@ -70,12 +70,12 @@ const QuizFramework1: React.FC = () => {
                     )}
                 </div>
             ) : (
-                <div className="quiz-box">
-                    <h2 className="question-title">{questions[currentQuestion].question}</h2>
+                <div className="quiz1-box">
+                    <h2 className="question1-title">{questions[currentQuestion].question}</h2>
                     {questions[currentQuestion].options.map((option) => (
                         <button
                             key={option}
-                            className="option-button"
+                            className="option1-button"
                             onClick={() => handleAnswer(option)}
                         >
                             {option}

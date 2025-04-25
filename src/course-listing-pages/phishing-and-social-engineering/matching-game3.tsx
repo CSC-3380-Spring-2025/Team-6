@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
-import "./matching-game.css";
+import { useNavigate } from "react-router-dom"; 
+import "./matching-game3.css";
 
 interface Card {
   id: number;
@@ -33,7 +33,7 @@ const MatchingGame: React.FC = () => {
   const [startTime, setStartTime] = useState<number | null>(null);
   const [elapsedTime, setElapsedTime] = useState<number>(0);
 
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const shuffledCards = shuffleArray([
@@ -110,25 +110,27 @@ const MatchingGame: React.FC = () => {
   };
 
   return (
-    <div className="matching-game bg-red-900">
-      <h2></h2>
-      {gameStarted && !gameOver && <h3>Time: {elapsedTime} seconds</h3>}
-      {gameOver && (
-        <>
-          <h3>You finished in {elapsedTime} seconds!</h3>
-          <button
-            className="btn btn-error p-3 pointer-events-auto"
-            onClick={() => navigate(-1)} // Navigate back to the previous page
-          >
-            Finish
-          </button>
-        </>
-      )}
+    <div className="matching3-game body3">
+      {}
+      <div className="top-section">
+        {gameStarted && !gameOver && <h3>Time: {elapsedTime} seconds</h3>}
+        {gameOver && (
+          <>
+            <h3>You finished the quiz in {elapsedTime} seconds!</h3>
+            <button
+              className="btn btn-error p-3 pointer-events-auto"
+              onClick={() => navigate(-1)} 
+            >
+              Finish
+            </button>
+          </>
+        )}
+      </div>
       <div className="grid-container">
         {cards.map((card) => (
           <div
             key={card.id}
-            className={`card ${card.matched ? "matched" : ""} ${card.incorrect ? "incorrect" : ""}`}
+            className={`matching3-game-card ${card.matched ? "matched" : ""} ${card.incorrect ? "incorrect" : ""}`}
             onClick={() => handleCardClick(card.id)}
           >
             {card.value}
