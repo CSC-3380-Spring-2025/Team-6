@@ -132,7 +132,7 @@ const HomePage = () => {
         <div className="fixed inset-0 z-0">
           {/* Gradient background */}
           <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
-            {/* Abstract grid pattern */}
+            {/*Grid/Dot Patterning*/}
             <div
               className="absolute inset-0 opacity-20"
               style={{
@@ -141,7 +141,7 @@ const HomePage = () => {
               }}
             ></div>
 
-            {/* Animated gradient accents */}
+            {/* Gradient Animation, Color Transitions*/}
             <div className="absolute -top-[40%] -right-[20%] w-[80%] h-[80%] bg-gradient-to-br from-purple-500/30 via-blue-500/20 to-cyan-500/30 rounded-full blur-3xl animate-pulse"></div>
             <div
               className="absolute -bottom-[40%] -left-[20%] w-[80%] h-[80%] bg-gradient-to-br from-rose-500/30 via-orange-500/20 to-amber-500/30 rounded-full blur-3xl animate-pulse"
@@ -150,7 +150,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        {/* Modern Landing Page Section */}
+        {/*Landing Page/First Page*/}
         <section className="relative h-screen w-full flex flex-col justify-center items-center z-10">
           <div className="container mx-auto px-4 flex flex-col items-center">
             <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
@@ -180,7 +180,7 @@ const HomePage = () => {
             </div>
           </div>
 
-          {/* Scroll indicator */}
+          {/* Scroll indicator, literally only for Aesthetics, no functionality, Maybe we can make do something funny*/}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
             <span className="text-white/50 text-sm mb-2">
               Scroll to explore
@@ -194,7 +194,7 @@ const HomePage = () => {
         {/* Section 1 - Password Security */}
         <section
           id="section1"
-          className="relative h-screen w-full flex flex-col justify-center items-center z-10"
+          className="relative h-[60vh] w-full flex flex-col justify-center items-center z-10"
         >
           <div className="container mx-auto px-4">
             <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 max-w-3xl mx-auto">
@@ -247,7 +247,7 @@ const HomePage = () => {
         {/* Section 2 - Physical Security */}
         <section
           id="section2"
-          className="relative h-screen w-full flex flex-col justify-center items-center z-10"
+          className="relative h-[60vh] w-full flex flex-col justify-center items-center z-10"
         >
           <div className="container mx-auto px-4">
             <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 max-w-3xl mx-auto">
@@ -299,7 +299,7 @@ const HomePage = () => {
         {/* Section 3 - Phishing and Social Engineering */}
         <section
           id="section3"
-          className="relative h-screen w-full flex flex-col justify-center items-center z-10"
+          className="relative h-[60vh] w-full flex flex-col justify-center items-center z-10"
         >
           <div className="container mx-auto px-4">
             <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 max-w-3xl mx-auto">

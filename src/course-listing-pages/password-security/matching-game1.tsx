@@ -110,7 +110,7 @@ const MatchingGame: React.FC = () => {
   };
 
   return (
-    <div className="matching-game">
+    <div className="matching-game bg-red-900">
       <h2></h2>
       {gameStarted && !gameOver && <h3>Time: {elapsedTime} seconds</h3>}
       {gameOver && (
