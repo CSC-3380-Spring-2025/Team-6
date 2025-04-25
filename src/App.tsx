@@ -22,6 +22,8 @@ import ResourceLibrary from "./resource-library/resource-library";
 import ResourceLibraryPage1 from "./resource-library/module-1-passwords/page1";
 import ResourceLibraryPage2 from "./resource-library/module-2-physical-security/page2";
 import ResourceLibraryPage3 from "./resource-library/module-3-social-engineering-awareness/page3";
+import LandingRedirect from "./LandingRedirect";
+import SettingsPage from "SettingsPage";
 
 
 const App: React.FC = () => {
@@ -29,9 +31,11 @@ const App: React.FC = () => {
     <Router>
       <Routes>
         {/**/}
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={<LandingRedirect />} />
         <Route path="/login" element={<AuthPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/settings" element={<SettingsPage />} />
         <Route path="/courselisting1" element={<CourseListing1/>} />
         <Route path="/courselisting2" element={<CourseListing2/>} />
         <Route path="/courselisting3" element={<CourseListing3/>} />
