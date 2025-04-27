@@ -70,10 +70,18 @@ const HomePage = () => {
                 </li>
                 <li>
                   <Link
-                    to="/contacts"
+                    to="/resource-library"
                     className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors"
                   >
-                    Contacts
+                    Resource Library
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/user-blogs"
+                    className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors"
+                  >
+                    Blog
                   </Link>
                 </li>
               </ul>
@@ -245,7 +253,7 @@ const HomePage = () => {
                   </li>
                 </ul>
                 <button
-                  onClick={() => navigate("/resource-library")}
+                  onClick={() => navigate("/courselisting1")}
                   className="px-8 py-4 bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-500 hover:to-rose-400 rounded-xl font-semibold text-white shadow-lg shadow-rose-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/40 flex items-center justify-center gap-2"
                 >
                   Start Learning

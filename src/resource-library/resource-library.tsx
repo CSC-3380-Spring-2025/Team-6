@@ -32,20 +32,22 @@ export default function ResourceLibrary() {
       <h1 className="text-4xl font-bold mb-4 text-white">
                   Choose a Reading to Annotate
                 </h1>
+                
+        <button
+          onClick={() => navigate("/resource-library/module-1-passwords")}
+          className="px-8 py-4 bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-500 hover:to-rose-400 rounded-xl font-semibold text-white shadow-lg shadow-rose-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/40 flex items-center justify-center gap-2"
+        >
+          Module 1: Password Management
+        </button>
 
         <button
           onClick={() => navigate("/resource-library/module-2-physical-security")}
-          className="px-8 py-4 bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-500 hover:to-rose-400 rounded-xl font-semibold text-white shadow-lg shadow-rose-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/40 flex items-center justify-center gap-2"
-        >
-          Module 1: Physical Security Fundamentals
-        </button>
-
-        <button
-          onClick={() => navigate("/resource-library/module-1-passwords")}
           className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-xl font-semibold text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/40 flex items-center justify-center gap-2"
         >
-          Module 2: Password Management
+          Module 2: Physical Security Fundamentals
         </button>
+
+        
 
         <button
           onClick={() => navigate("/resource-library/module-3-social-engineering-awareness")}

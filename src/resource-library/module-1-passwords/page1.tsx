@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
-import './resource-library.css';
+import './resource1-library.css';
 
 interface Comment {
   id: number;
