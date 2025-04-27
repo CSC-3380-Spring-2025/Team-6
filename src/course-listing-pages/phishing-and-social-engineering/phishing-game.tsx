@@ -51,10 +51,10 @@ interface ScoreboardProps {
 
 const Scoreboard: React.FC<ScoreboardProps> = ({ currentScore, totalQuestions, questionNumber }) => {
   return (
-    <div className="mb-4 p-3 bg-gray-100 rounded-lg text-center shadow-sm">
-      <p className="text-lg font-semibold">
+    <div className="mb-4 p-3 bg-white rounded-lg text-center ">
+      <p className="text-lg font-semibold text-black">
         Score: {currentScore} / {totalQuestions}
-        {questionNumber && <span className="ml-4 text-sm text-gray-600">Question: {questionNumber} of {totalQuestions}</span>}
+        {questionNumber && <span className="ml-4 text-sm">Question: {questionNumber} of {totalQuestions}</span>}
       </p>
     </div>
   );
@@ -67,16 +67,16 @@ interface ExampleDisplayProps {
 const ExampleDisplay: React.FC<ExampleDisplayProps> = ({ example }) => {
   return (
     <div className="mb-6 p-4 border border-gray-300 rounded-lg bg-white ">
-      <h3 className="text-lg font-semibold mb-3 capitalize">{example.type.replace('_', ' ')} Example</h3>
+      <h3 className="text-lg font-semibold mb-3 capitalize text-black">{example.type.replace('_', ' ')} Example</h3>
       {example.type === 'email' && (
-        <div className="mb-2 text-sm">
-          <p><span className="font-medium">From:</span> {example.sender}</p>
-          <p><span className="font-medium">Subject:</span> {example.subject}</p>
+        <div className="mb-2 text-sm text-black">
+          <p><span className="font-medium text-black">From:</span> {example.sender}</p>
+          <p><span className="font-medium text-black">Subject:</span> {example.subject}</p>
         </div>
       )}
       {example.type === 'sms' && (
          <div className="mb-2 text-sm">
-          <p><span className="font-medium">From:</span> {example.sender}</p>
+          <p><span className="font-medium text-black">From:</span> {example.sender}</p>
         </div>
       )}
       <div
@@ -145,7 +145,7 @@ const FeedbackModal: React.FC<FeedbackModalProps> = ({ isCorrect, explanation, h
       )}
       <button
         onClick={onNext}
-        className="mt-2 px-4 py-1 bg-blue-500 text-white rounded-md font-semibold shadow transition-colors duration-200"
+        className="mt-2 px-4 py-1 bg-blue-500 text-white rounded-md font-semibold transition-colors duration-200"
         aria-label="Go to next example"
       >
         Next
@@ -231,10 +231,17 @@ const PhishingGame: React.FC = () => {
         </p>
         <button
             onClick={handleRestart}
-            className="px-6 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-semibold shadow transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+            className="px-6 py-2 bg-blue-500 text-white rounded-lg font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
             aria-label="Play Again"
         >
             Play Again
+        </button>
+        <button
+            onClick={() => window.location.href = '/'}
+            className="mt-4 px-6 py-2 bg-gray-300 text-gray-800 rounded-lg font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75"
+            aria-label="Go to Home"
+        >
+            Go to Home
         </button>
       </div>
     );
@@ -242,8 +249,8 @@ const PhishingGame: React.FC = () => {
 
   // Main game screen
   return (
-    <div className="max-w-2xl mx-auto p-4 sm:p-6 font-sans bg-gray-50 min-h-screen">
-      <h1 className="text-2xl sm:text-3xl font-bold text-center mb-6 text-gray-800">Spot the Phish!</h1>
+    <div className="max-w-2xl mx-auto p-4 sm:p-6 font-sans bg-grbay-50 min-h-screen">
+      <h1 className="text-2xl sm:text-3xl font-bold text-center mb-6 text-white">Spot the Phish!</h1>
 
       {/* Shows the current example if there's one to pull from */}
       {currentExample ? (

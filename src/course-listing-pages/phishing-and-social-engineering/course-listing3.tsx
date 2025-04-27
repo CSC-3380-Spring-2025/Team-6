@@ -234,10 +234,9 @@ const CourseListing3: React.FC = () => {
             <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none bg-black bg-opacity-50">
               <button
                 className="btn bg-emerald-600 text-white p-3 pointer-events-auto flex items-center gap-2 rounded-lg"
-                onClick={() => navigate("/reading3")}
+                onClick={() => navigate("/phishing-game")}
               >
-                <BookOpen className="h-5 w-5" />
-                Start Reading
+                Play Phishing Game
               </button>
             </div>
             <div className="absolute z-20 left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between pointer-events-none">

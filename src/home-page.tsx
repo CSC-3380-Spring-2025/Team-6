@@ -116,21 +116,20 @@ const HomePage = () => {
                   </a>
                 </li>
                 <li>
-    <a
-    onClick={async () => {
-      try {
-        await signOut(auth);
-        navigate("/");
-      } catch (error) {
-        console.error("Logout failed:", error);
-      }
-    }}
-    className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors cursor-pointer"
-  >
-    Logout
-  </a>
-</li>
-
+                  <a
+                    onClick={async () => {
+                      try {
+                        await signOut(auth);
+                        navigate("/");
+                      } catch (error) {
+                        console.error("Logout failed:", error);
+                      }
+                    }}
+                    className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors cursor-pointer"
+                  >
+                    Logout
+                  </a>
+                </li>
               </ul>
             )}
           </div>
