@@ -1,10 +1,10 @@
-.quiz-container {
+.quiz2-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #72002e;;
+  background:  #337eef  ;
   padding: 20px;
   color: black;
 }
@@ -21,7 +21,7 @@
 }
 
 /* Question Text */
-.question-title {
+.question2-title {
   font-size: 1.5rem;
   font-weight: bold;
   color: black;
@@ -30,19 +30,24 @@
 }
 
 /* Option Buttons */
-.option-button {
+.option2-button {
   padding: 12px 16px;
   font-size: 1rem;
-  background: #D3D3D3;
+  background: white;
   color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
+  width: 100%; 
+  max-width: 300px; 
+  text-align: center; 
+  box-sizing: border-box; 
 }
 
-.option-button:hover {
-  background: #A9A9A9;
+.option2-button:hover {
+  background: #68a4ff;
+  color: white
 }
 
 /* Results Section */

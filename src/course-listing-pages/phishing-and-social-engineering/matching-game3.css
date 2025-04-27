@@ -1,8 +1,6 @@
-.body {
-  background-color: #72002e; 
-}
 
-.matching-game {
+
+.matching3-game {
   text-align: center;
   font-family: Arial, sans-serif;
   color: white;
@@ -21,9 +19,9 @@ h2, h3 {
   margin: 20px auto;
 }
 
-.card {
+.matching3-game-card {
   padding: 20px;
-  background: #ecf0f1;
+  background: white;
   border-radius: 10px; 
   text-align: center;
   cursor: pointer;
@@ -31,10 +29,10 @@ h2, h3 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
   font-size: 18px;
   font-weight: bold;
-  color: #502c2c; 
+  color: black; 
 }
 
-.card:hover {
+.matching3-game-card:hover {
   transform: translateY(-5px); 
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
   background: #bdc3c7; 
@@ -60,4 +58,30 @@ h2, h3 {
   50% { transform: translateX(5px); }
   75% { transform: translateX(-5px); }
   100% { transform: translateX(0); }
+}
+.body3 {
+  background-color: #a056f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0; 
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  max-width: 600px;
+}
+.top-section {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; 
 }
