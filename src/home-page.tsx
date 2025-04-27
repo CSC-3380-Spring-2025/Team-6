@@ -70,10 +70,18 @@ const HomePage = () => {
                 </li>
                 <li>
                   <Link
-                    to="/contacts"
+                    to="/resource-library"
                     className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors"
                   >
-                    Contacts
+                    Resource Library
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/user-blogs"
+                    className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors"
+                  >
+                    Blog
                   </Link>
                 </li>
               </ul>
