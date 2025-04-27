@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./landing-page"; 
 import AuthPage from "./AuthPage";
 import HomePage from "./home-page";
+import AboutPage from "./AboutPage";
 import VideoOne from "./course-listing-pages/password-security/video1";
 import VideoThree from "./course-listing-pages/phishing-and-social-engineering/video3";
 import VideoTwo from "./course-listing-pages/physical-security/video2";
@@ -36,6 +37,7 @@ const App: React.FC = () => {
         <Route path="/login" element={<AuthPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/courselisting1" element={<CourseListing1/>} />
         <Route path="/courselisting2" element={<CourseListing2/>} />
         <Route path="/courselisting3" element={<CourseListing3/>} />
