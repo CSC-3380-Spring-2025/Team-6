@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./quiz-framework.css";
+import "./quiz-framework3.css";
 
 const QuizFramework3: React.FC = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -54,17 +54,17 @@ const QuizFramework3: React.FC = () => {
     };
 
     return (
-        <div className="quiz-container">
+        <div className="quiz3-container">
             {showResult ? (
                 <div className="quiz-box result-container">
                     <h2 className="question-title">Quiz Completed!</h2>
                     <p>Your Score: {score} / {questions.length}</p>
                     {score === questions.length ? (
-                        <button className="finish-button" onClick={() => navigate(-1)}>
+                        <button className="btn btn-error p-3 pointer-events-auto" onClick={() => navigate(-1)}>
                             Finish
                         </button>
                     ) : (
-                        <button className="retry-button" onClick={handleRetry}>
+                        <button className="btn btn-error p-3 pointer-events-auto" onClick={handleRetry}>
                             Retry
                         </button>
                     )}
@@ -75,7 +75,7 @@ const QuizFramework3: React.FC = () => {
                     {questions[currentQuestion].options.map((option) => (
                         <button
                             key={option}
-                            className="option-button"
+                            className="option3-button"
                             onClick={() => handleAnswer(option)}
                         >
                             {option}

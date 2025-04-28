@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./landing-page"; 
 import AuthPage from "./AuthPage";
 import HomePage from "./home-page";
+import AboutPage from "./AboutPage";
 import VideoOne from "./course-listing-pages/password-security/video1";
 import VideoThree from "./course-listing-pages/phishing-and-social-engineering/video3";
 import VideoTwo from "./course-listing-pages/physical-security/video2";
@@ -22,16 +23,25 @@ import ResourceLibrary from "./resource-library/resource-library";
 import ResourceLibraryPage1 from "./resource-library/module-1-passwords/page1";
 import ResourceLibraryPage2 from "./resource-library/module-2-physical-security/page2";
 import ResourceLibraryPage3 from "./resource-library/module-3-social-engineering-awareness/page3";
+import LandingRedirect from "./LandingRedirect";
+import SettingsPage from "SettingsPage";
+import UserBlogs from "./user-blogs/user-blogs";
+import CreateBlogs from "./user-blogs/create-blogs/create-blogs";
+import ScrollToTop from "./ScrollToTop"; 
 
 
 const App: React.FC = () => {
   return (
     <Router>
+       <ScrollToTop />
       <Routes>
         {/**/}
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={<LandingRedirect />} />
         <Route path="/login" element={<AuthPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/courselisting1" element={<CourseListing1/>} />
         <Route path="/courselisting2" element={<CourseListing2/>} />
         <Route path="/courselisting3" element={<CourseListing3/>} />
@@ -64,6 +74,8 @@ const App: React.FC = () => {
         <Route path="/resource-library/module-2-physical-security" element={<ResourceLibraryPage2 />} />
         <Route path="/resource-library/module-3-social-engineering-awareness" element={<ResourceLibraryPage3 />} />
         
+        <Route path="/user-blogs" element={<UserBlogs />} />
+        <Route path="/create-blogs" element={<CreateBlogs />} />
       </Routes>
     </Router>
   );

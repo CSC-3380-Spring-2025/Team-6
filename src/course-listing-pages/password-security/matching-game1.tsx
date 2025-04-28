@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./matching-game.css";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+import "./matching-game1.css";
 
 interface Card {
   id: number;
@@ -31,6 +32,8 @@ const MatchingGame: React.FC = () => {
   const [gameOver, setGameOver] = useState(false);
   const [startTime, setStartTime] = useState<number | null>(null);
   const [elapsedTime, setElapsedTime] = useState<number>(0);
+
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     const shuffledCards = shuffleArray([
@@ -107,15 +110,27 @@ const MatchingGame: React.FC = () => {
   };
 
   return (
-    <div className="matching-game">
-      <h2>Matching Game</h2>
-      {gameStarted && !gameOver && <h3>Time: {elapsedTime} seconds</h3>}
-      {gameOver && <h3>🎉 You finished in {elapsedTime} seconds! 🎉</h3>}
-      <div className="grid-container">
+    <div className="matching1-game body1">
+      {}
+      <div className="top-section">
+        {gameStarted && !gameOver && <h3>Time: {elapsedTime} seconds</h3>}
+        {gameOver && (
+          <>
+            <h3>You finished the quiz in {elapsedTime} seconds!</h3>
+            <button
+              className="btn btn-error p-3 pointer-events-auto"
+              onClick={() => navigate(-1)} 
+            >
+              Finish
+            </button>
+          </>
+        )}
+      </div>
+      <div className="grid1-container">
         {cards.map((card) => (
           <div
             key={card.id}
-            className={`card ${card.matched ? "matched" : ""} ${card.incorrect ? "incorrect" : ""}`}
+            className={`matching1-game-card ${card.matched ? "matched" : ""} ${card.incorrect ? "incorrect" : ""}`}
             onClick={() => handleCardClick(card.id)}
           >
             {card.value}
