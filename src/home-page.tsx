@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Menu, User } from "lucide-react";
 import { signOut } from "firebase/auth";
-import { auth } from "./firebase"; 
+import { auth } from "./firebase";
 
 
 const HomePage = () => {
@@ -36,11 +36,10 @@ const HomePage = () => {
     <div className="flex flex-col items-center min-h-screen w-full bg-black">
       {/* Navbar */}
       <div
-        className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-          scrollPosition > 50
+        className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrollPosition > 50
             ? "bg-black/80 backdrop-blur-md shadow-lg"
             : "bg-transparent"
-        }`}
+          }`}
       >
         <div className="container mx-auto flex justify-between items-center h-20 px-4">
           <div className="relative">

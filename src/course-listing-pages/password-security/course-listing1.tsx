@@ -1,17 +1,143 @@
 "use client";
 
 import type React from "react";
-import { useNavigate } from "react-router-dom";
-import { CheckCircle, ChevronRight, Lock, Shield } from "lucide-react";
+import { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { Menu, User, CheckCircle, ChevronRight, Lock, Shield } from "lucide-react";
 import { auth, db } from "../../firebase"; 
+import { signOut } from "firebase/auth";
 import { doc, updateDoc } from "firebase/firestore";
 
 const CourseListing1: React.FC = () => {
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="bg-black min-h-screen text-white m-0 p-0 overflow-x-hidden">
+      <div
+        className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+          scrollPosition > 50
+            ? "bg-black/80 backdrop-blur-md shadow-lg"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="container mx-auto flex justify-between items-center h-20 px-4">
+          <div className="relative">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 rounded-full hover:bg-white/10 transition-colors"
+            >
+              <Menu className="h-6 w-6 text-white" />
+            </button>
+            {isMenuOpen && (
+              <ul className="absolute left-0 mt-3 w-56 p-2 shadow-xl bg-black/90 backdrop-blur-md rounded-xl z-30 border border-white/10">
+                <li>
+                  <Link
+                    to="/"
+                    className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors"
+                  >
+                    Homepage
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/about"
+                    className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors"
+                  >
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/resource-library"
+                    className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors"
+                  >
+                    Resource Library
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/user-blogs"
+                    className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors"
+                  >
+                    Blog
+                  </Link>
+                </li>
+              </ul>
+            )}
+          </div>
+
+          <div className="cursor-pointer" onClick={scrollToTop}>
+            <div className="w-auto h-10 relative">
+              <img
+                src="CyberLogo.png"
+                alt="Cyber Logo"
+                className="h-10 cursor-pointer"
+              />
+            </div>
+          </div>
+
+          <div className="relative">
+            <button
+              onClick={() => setIsProfileOpen(!isProfileOpen)}
+              className="p-2 rounded-full hover:bg-white/10 transition-colors"
+            >
+              <User className="h-6 w-6 text-white" />
+            </button>
+            {isProfileOpen && (
+              <ul className="absolute right-0 mt-3 w-56 p-2 shadow-xl bg-black/90 backdrop-blur-md rounded-xl z-30 border border-white/10">
+                <li>
+                  <a
+                    onClick={() => navigate("/profile")}
+                    className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors cursor-pointer"
+                  >
+                    Profile
+                  </a>
+                </li>
+                <li>
+                  <a
+                    onClick={() => navigate("/settings")}
+                    className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors cursor-pointer"
+                  >
+                    Settings
+                  </a>
+                </li>
+                <li>
+                  <a
+                    onClick={async () => {
+                      try {
+                        await signOut(auth);
+                        navigate("/");
+                      } catch (error) {
+                        console.error("Logout failed:", error);
+                      }
+                    }}
+                    className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors cursor-pointer"
+                  >
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            )}
+          </div>
+        </div>
+      </div>
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <h1 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
+        <h1 className="mb-4 mt-10 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
           <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
             Password
           </span>{" "}
