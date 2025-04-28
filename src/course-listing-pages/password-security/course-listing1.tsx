@@ -3,6 +3,8 @@
 import type React from "react";
 import { useNavigate } from "react-router-dom";
 import { CheckCircle, ChevronRight, Lock, Shield } from "lucide-react";
+import { auth, db } from "../../firebase"; 
+import { doc, updateDoc } from "firebase/firestore";
 
 const CourseListing1: React.FC = () => {
   const navigate = useNavigate();
@@ -141,12 +143,28 @@ const CourseListing1: React.FC = () => {
         </div>
 
         <div className="flex justify-center mb-10">
-          <button
-            className="btn bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 flex items-center"
-            onClick={() => navigate("/")}
-          >
-            <CheckCircle className="mr-2" /> Mark as Complete
-          </button>
+        <button
+  className="btn bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 flex items-center"
+  onClick={async () => {
+    if (auth.currentUser) {
+      const userRef = doc(db, "users", auth.currentUser.uid);
+      try {
+        await updateDoc(userRef, {
+          "progress.passwordSecurity": true, 
+        });
+        console.log("Progress updated successfully!");
+      } catch (error) {
+        console.error("Error updating progress:", error);
+      }
+    } else {
+      console.error("No authenticated user found.");
+    }
+    navigate("/");
+  }}
+>
+  <CheckCircle className="mr-2" /> Mark as Complete
+</button>
+
         </div>
 
         <div className="flex carousel w-full mx-auto h-64 my-10 rounded-xl overflow-hidden ">
