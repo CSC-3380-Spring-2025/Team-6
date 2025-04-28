@@ -19,7 +19,7 @@ const AboutPage: React.FC = () => {
               tools and knowledge needed to navigate the ever-evolving
               landscape of cybersecurity threats.
             </p>
-            <button className="btn btn-primary" onClick={() => navigate("/home-page")}>Our Courses</button>
+            <button className="btn btn-primary" onClick={() => navigate("/")}>Our Courses</button>
           </div>
         </div>
       </section>
@@ -30,7 +30,7 @@ const AboutPage: React.FC = () => {
             <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
             <div className="divider max-w-xs mx-auto"></div>
               <p className="text-xl">
-              Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+              We want to develop the future of a cybersecurity aware workforce.
               </p>
           </div>
 
@@ -40,9 +40,7 @@ const AboutPage: React.FC = () => {
                 <Shield className="w-12 h-12 text-primary mb-4" />
                 <h3 className="card-title">Protections</h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit.
-                  Quisque faucibus ex sapien vitae pellentesque sem
-                  placerat.
+                  The wide array of threats that can attack modern day systems are all covered on our site.
                 </p>
               </div>
             </div>
@@ -51,7 +49,7 @@ const AboutPage: React.FC = () => {
                 <Users className="w-12 h-12 text-primary mb-4" />
                 <h3 className="card-title">Community</h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+                  Working together and developing knowledge is an important pillar of our website.</p>
               </div>
             </div>
           </div>
