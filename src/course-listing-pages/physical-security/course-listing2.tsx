@@ -3,9 +3,30 @@
 import type React from "react"
 import { useNavigate } from "react-router-dom"
 import { CheckCircle, Lock, Shield, Camera, Bell, Key, Fence, AlertTriangle, Users, Lightbulb } from "lucide-react"
+import { auth, db } from "../../firebase"
+import { doc, updateDoc } from "firebase/firestore"
+
 
 const CourseListing2: React.FC = () => {
   const navigate = useNavigate()
+  const handleFinish = async () => {
+    if (auth.currentUser) {
+      const userRef = doc(db, "users", auth.currentUser.uid)
+      try {
+        await updateDoc(userRef, {
+          "progress.physicalSecurity": true,
+        })
+        console.log("Progress updated: physicalSecurity marked complete")
+      } catch (error) {
+        console.error("Error updating progress:", error)
+      }
+      navigate("/")
+    } else {
+      console.error("No authenticated user found.")
+      navigate("/")
+    }
+  }
+  
   return (
     <div className="bg-black min-h-screen text-white m-0 p-0 overflow-x-hidden">
       <div className="max-w-4xl mx-auto px-4 py-8">
@@ -174,10 +195,11 @@ const CourseListing2: React.FC = () => {
         </div>
 
         <div className="flex justify-center mb-10">
-          <button
-            className="btn bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 flex items-center"
-            onClick={() => navigate("/")}
-          >
+        <button
+  className="btn bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 flex items-center"
+  onClick={handleFinish}
+>
+
             <CheckCircle className="mr-2" /> Mark as Complete
           </button>
         </div>
@@ -186,7 +208,7 @@ const CourseListing2: React.FC = () => {
           {/* Slide 1 */}
           <div id="slide1" className="carousel-item relative w-full">
             <img
-              src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
+              src="physsec1.jpeg"
               className="w-full z-0 pointer-events-none object-cover"
             />
             <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none bg-black bg-opacity-50">
@@ -207,10 +229,10 @@ const CourseListing2: React.FC = () => {
             </div>
           </div>
 
-          {/* Slide 3 */}
+          {/* Slide 2 */}
           <div id="slide2" className="carousel-item relative w-full">
             <img
-              src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
+              src="physsec2.jpg"
               className="w-full z-0 pointer-events-none object-cover"
             />
             <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none bg-black bg-opacity-50">
@@ -231,10 +253,10 @@ const CourseListing2: React.FC = () => {
             </div>
           </div>
 
-          {/* Slide 4 */}
+          {/* Slide 3 */}
           <div id="slide3" className="carousel-item relative w-full">
             <img
-              src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
+              src="physsec3.jpg"
               className="w-full z-0 pointer-events-none object-cover"
             />
             <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none bg-black bg-opacity-50">

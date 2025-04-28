@@ -25,11 +25,15 @@ import ResourceLibraryPage2 from "./resource-library/module-2-physical-security/
 import ResourceLibraryPage3 from "./resource-library/module-3-social-engineering-awareness/page3";
 import LandingRedirect from "./LandingRedirect";
 import SettingsPage from "SettingsPage";
+import UserBlogs from "./user-blogs/user-blogs";
+import CreateBlogs from "./user-blogs/create-blogs/create-blogs";
+import ScrollToTop from "./ScrollToTop"; 
 
 
 const App: React.FC = () => {
   return (
     <Router>
+       <ScrollToTop />
       <Routes>
         {/**/}
         <Route path="/home" element={<HomePage />} />
@@ -70,6 +74,8 @@ const App: React.FC = () => {
         <Route path="/resource-library/module-2-physical-security" element={<ResourceLibraryPage2 />} />
         <Route path="/resource-library/module-3-social-engineering-awareness" element={<ResourceLibraryPage3 />} />
         
+        <Route path="/user-blogs" element={<UserBlogs />} />
+        <Route path="/create-blogs" element={<CreateBlogs />} />
       </Routes>
     </Router>
   );

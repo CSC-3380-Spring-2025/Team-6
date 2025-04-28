@@ -3,7 +3,6 @@
   flex-direction: row;
   gap: 40px;
   padding: 32px;
-  background-color: #72002e;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
 }
@@ -81,15 +80,13 @@
   margin-bottom: 16px;
   padding: 12px;
   background-color: #f1f5ff;
-  border-left: 4px solid #790000;
   border-radius: 6px;
 }
 
 .highlighted-text {
-  background-color: #ffff99; /* Sticky highlight style */
-  padding: 2px 4px;
-  border-radius: 3px;
-  font-weight: bold;
+  background-color: yellow; /* Highlight color */
+  color: black; /* Text color */
+  font-weight: bold; /* Optional: Make the text bold */
 }
 .back-button {
   margin: 1rem;

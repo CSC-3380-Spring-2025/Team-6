@@ -1,0 +1,60 @@
+.user-blogs-container {
+  display: flex;
+  flex-direction: column; /* Stack sections vertically */
+  gap: 0; /* Remove gap between sections */
+  padding: 0; /* Remove padding to make it full width */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh; /* Ensure it takes up the full height of the viewport */
+  width: 100%; /* Ensure it takes up the full width of the viewport */
+}
+  
+  .create-article-section {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .create-article-button {
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #ffffff;
+    color: #790000;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .create-article-button:hover {
+    background-color: #fc5c7c;
+    color: white;
+    border-color: #fc5c7c;
+  }
+  
+  .view-articles-section {
+    flex: 1; /* Allow it to take up the full space */
+    padding: 32px; /* Add padding for better spacing */
+    border-radius: 0; /* Remove border radius to make it span the full width */
+    box-shadow: none; /* Remove shadow for a cleaner look */
+    overflow-y: auto;
+    height: 100%; /* Ensure it takes up the full height */
+    width: 100%; /* Ensure it takes up the full width */
+    color: #333;
+}
+  
+  .view-articles-section h2 {
+    margin-bottom: 16px;
+  }
+  
+  .article-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .article-item {
+    padding: 12px;
+    margin-bottom: 16px;
+    border-left: 4px solid #790000;
+    border-radius: 6px;
+  }
