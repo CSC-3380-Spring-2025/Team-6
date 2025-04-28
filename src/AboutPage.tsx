@@ -159,7 +159,7 @@ const AboutPage: React.FC = () => {
 
       <div className="z-10 mt-36 relative flex flex-col">
         <section className="hero py-20">
-          <div className="hero-content flex-col lg:flex-row-reverse max-w-7xl text-center mx-auto">
+          <div className="hero-content flex-col lg:flex-row-reverse max-w-7xl text-left mx-auto">
             <div className="lg:w-1/2">
               <img
                 src="/dabird.png?height=400&width=600"
