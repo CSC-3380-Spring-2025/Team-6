@@ -3,9 +3,34 @@
 import type React from "react"
 import { useNavigate } from "react-router-dom"
 import { AlertTriangle, BookOpen, CheckCircle, FileWarning, Shield, HelpCircle, User } from "lucide-react"
+import { auth, db } from "../../firebase"
+import { doc, updateDoc } from "firebase/firestore"
+
 
 const CourseListing3: React.FC = () => {
   const navigate = useNavigate()
+  const handleFinish = async () => {
+    if (auth.currentUser) {
+      const userRef = doc(db, "users", auth.currentUser.uid);
+      try {
+        await updateDoc(userRef, {
+          "progress.phishingAwareness": true,
+        });
+        console.log("Progress updated: phishing marked complete");
+      } catch (error) {
+        console.error("Error updating progress:", error);
+      }
+      navigate("/");
+    } else {
+      console.error("No authenticated user found.");
+      navigate("/");
+    }
+  };
+  
+  
+  
+  
+  
   return (
     <div className="bg-black min-h-screen text-white m-0 p-0 overflow-x-hidden">
       <div className="max-w-4xl mx-auto px-4 py-8">
@@ -192,10 +217,11 @@ const CourseListing3: React.FC = () => {
         </div>
 
         <div className="flex justify-center mb-10">
-          <button
-            className="btn bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 flex items-center"
-            onClick={() => navigate("/")}
-          >
+        <button
+  className="btn bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 flex items-center"
+  onClick={handleFinish}
+>
+
             <CheckCircle className="mr-2" /> Mark as Complete
           </button>
         </div>

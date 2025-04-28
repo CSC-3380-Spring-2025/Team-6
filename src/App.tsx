@@ -27,11 +27,13 @@ import LandingRedirect from "./LandingRedirect";
 import SettingsPage from "SettingsPage";
 import UserBlogs from "./user-blogs/user-blogs";
 import CreateBlogs from "./user-blogs/create-blogs/create-blogs";
+import ScrollToTop from "./ScrollToTop"; 
 
 
 const App: React.FC = () => {
   return (
     <Router>
+       <ScrollToTop />
       <Routes>
         {/**/}
         <Route path="/home" element={<HomePage />} />
