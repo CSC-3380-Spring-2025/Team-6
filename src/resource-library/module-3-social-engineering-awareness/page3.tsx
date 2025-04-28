@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
-import './resource3-library.css';
+import { useNavigate } from "react-router-dom";
+import "./resource3-library.css";
 
 interface Comment {
   id: number;
@@ -9,7 +9,7 @@ interface Comment {
 }
 
 export default function Module3Page() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const [comments, setComments] = useState<Comment[]>([]);
   const [selectedText, setSelectedText] = useState("");
@@ -54,13 +54,39 @@ export default function Module3Page() {
   };
 
   return (
-    <div className="resource-library" onMouseUp={handleMouseUp}>
-      {/*Back Button */}
-      <button className="px-8 py-4 bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-500 hover:to-rose-400 rounded-xl font-semibold text-white shadow-lg shadow-rose-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/40 flex items-center justify-center gap-2" onClick={() => navigate("/")}>
-        ← Back to Modules
-      </button>
+    <div className="relative flex flex-col h-screen">
+      {/* Gradient Background */}
+      <div className="fixed inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
+          {/* Grid/Dot Patterning */}
+          <div
+            className="absolute inset-0 opacity-20"
+            style={{
+              backgroundImage: `radial-gradient(circle at 25px 25px, rgba(255, 255, 255, 0.2) 2px, transparent 0)`,
+              backgroundSize: "50px 50px",
+            }}
+          ></div>
 
-      <div className="articles">
+          {/* Gradient Animation, Color Transitions */}
+          <div className="absolute -top-[40%] -right-[20%] w-[80%] h-[80%] bg-gradient-to-br from-purple-500/30 via-blue-500/20 to-cyan-500/30 rounded-full blur-3xl animate-pulse"></div>
+          <div
+            className="absolute -bottom-[40%] -left-[20%] w-[80%] h-[80%] bg-gradient-to-br from-rose-500/30 via-orange-500/20 to-amber-500/30 rounded-full blur-3xl animate-pulse"
+            style={{ animationDelay: "2s" }}
+          ></div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="relative z-10 resource-library" onMouseUp={handleMouseUp}>
+        {/* Back Button */}
+        <button
+          className="px-8 py-4 bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-500 hover:to-rose-400 rounded-xl font-semibold text-white shadow-lg shadow-rose-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/40 flex items-center justify-center gap-2"
+          onClick={() => navigate("/")}
+        >
+          ← Back to Modules
+        </button>
+
+        <div className="articles">
         <h2>Understanding Social Engineering Tactics: 8 Attacks to Watch Out For</h2>
         <h2>Source: Fortra</h2>
         <p>
@@ -150,7 +176,7 @@ export default function Module3Page() {
         <p>
         Companies should integrate the following recommendations into their security awareness training:
         Exercise caution with emails from unfamiliar sources. If you receive a suspicious email, verify its legitimacy by contacting the sender directly via phone or in person.
-        Be skeptical of unsolicited offers. If something appears too good to be true, it likely is.
+        Be skeptical of unsolicited offers. If something appears to be too good to be true, it likely is.
         Always lock your laptop when stepping away from your workstation to prevent unauthorized access.  
         Invest in antivirus software. While no antivirus solution offers foolproof protection, it can significantly bolster defenses against social engineering tactics.
         Familiarize yourself with your company’s privacy policy to understand protocols regarding access permissions for external individuals.
@@ -162,25 +188,52 @@ export default function Module3Page() {
         </p>
       </div>
 
-      {showCommentBox && (
-        <div className="comment-box">
-          <textarea
-            value={commentInput}
-            onChange={(e) => setCommentInput(e.target.value)}
-            placeholder="Add your comment..."
-          />
-          <button onClick={handleAddComment}>Add Comment</button>
-        </div>
-      )}
-
-      <div className="comments-sidebar">
-        <h3>Comments</h3>
-        {comments.map((comment) => (
-          <div key={comment.id} className="comment-item">
-            <span className="highlighted-text">"{comment.selection}"</span>
-            <p>{comment.text}</p>
+        {showCommentBox && (
+          <div className="comment-box">
+            <textarea
+              value={commentInput}
+              onChange={(e) => setCommentInput(e.target.value)}
+              placeholder="Add your comment..."
+            />
+            <button
+              className="mb-4 px-4 py-2 bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-500 hover:to-rose-400 rounded-xl font-semibold text-white shadow-lg shadow-rose-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/40 flex items-center justify-center gap-2"
+              onClick={handleAddComment}
+            >
+              Add Comment
+            </button>
           </div>
-        ))}
+        )}
+
+        <div className="comments-sidebar">
+          <h3>Comments</h3>
+          {comments.map((comment) => (
+            <div key={comment.id} className="comment-item">
+              <span className="highlighted-text">"{comment.selection}"</span>
+              <p>{comment.text}</p>
+              <button
+                className="ml-4 px-4 py-2 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 rounded-xl font-semibold text-white shadow-lg shadow-red-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-red-500/40 flex items-center justify-center gap-2"
+                onClick={() => {
+                  // Remove the highlight from the article
+                  const highlightedElements = document.querySelectorAll(".highlighted-text");
+                  highlightedElements.forEach((element) => {
+                    if (element.textContent === comment.selection) {
+                      const parent = element.parentNode;
+                      if (parent) {
+                        // Replace the span with its text content
+                        parent.replaceChild(document.createTextNode(element.textContent || ""), element);
+                      }
+                    }
+                  });
+
+                  // Remove the comment from the state
+                  setComments((prev) => prev.filter((c) => c.id !== comment.id));
+                }}
+              >
+                Delete
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

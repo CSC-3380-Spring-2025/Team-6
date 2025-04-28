@@ -20,7 +20,7 @@ const CreateBlogs: React.FC = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center h-screen gap-4 bg-white">
+    <div className="relative flex flex-col h-screen">
       {/* Gradient Background */}
       <div className="fixed inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
@@ -43,10 +43,10 @@ const CreateBlogs: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 p-6 bg-gray-100 min-h-screen">
-        <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
+      <div className="relative z-10 flex-1 p-6">
+        <div className="max-w-4xl mx-auto bg-white/90 shadow-md rounded-lg p-6">
           <button
-            className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-xl font-semibold text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/40 flex items-center justify-center gap-2"
+            className="mb-4 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-xl font-semibold text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/40 flex items-center justify-center gap-2"
             onClick={() => navigate("/user-blogs")}
           >
             ← Back to My Articles
