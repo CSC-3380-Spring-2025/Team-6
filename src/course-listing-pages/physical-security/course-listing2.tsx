@@ -208,7 +208,7 @@ const CourseListing2: React.FC = () => {
           {/* Slide 1 */}
           <div id="slide1" className="carousel-item relative w-full">
             <img
-              src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
+              src="physsec1.jpeg"
               className="w-full z-0 pointer-events-none object-cover"
             />
             <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none bg-black bg-opacity-50">
@@ -229,10 +229,10 @@ const CourseListing2: React.FC = () => {
             </div>
           </div>
 
-          {/* Slide 3 */}
+          {/* Slide 2 */}
           <div id="slide2" className="carousel-item relative w-full">
             <img
-              src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
+              src="physsec2.jpg"
               className="w-full z-0 pointer-events-none object-cover"
             />
             <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none bg-black bg-opacity-50">
@@ -253,10 +253,10 @@ const CourseListing2: React.FC = () => {
             </div>
           </div>
 
-          {/* Slide 4 */}
+          {/* Slide 3 */}
           <div id="slide3" className="carousel-item relative w-full">
             <img
-              src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
+              src="physsec3.jpg"
               className="w-full z-0 pointer-events-none object-cover"
             />
             <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none bg-black bg-opacity-50">
