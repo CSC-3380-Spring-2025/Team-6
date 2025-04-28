@@ -161,6 +161,15 @@ const AboutPage: React.FC = () => {
         <section className="hero py-20">
           <div className="hero-content flex-col lg:flex-row-reverse max-w-7xl text-center mx-auto">
             <div className="lg:w-1/2">
+              <img
+                src="/dabird.png?height=400&width=600"
+                alt="Cybersecurity professionals"
+                width={600}
+                height={400}
+                className="rounded-lg "
+              />
+            </div>
+            <div className="lg:w-1/2">
               <h1 className="text-5xl font-bold">About CyberDojo</h1>
               <p className="py-6 text-lg">
                 CyberDojo is a platform designed to enhance your cybersecurity
