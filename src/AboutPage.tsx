@@ -180,7 +180,7 @@ const AboutPage: React.FC = () => {
               <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
               <div className="divider max-w-xs mx-auto"></div>
               <p className="text-xl">
-                We want to develop the future of a cybersecurity aware workforce.
+              To transform mandatory corporate cybersecurity training into an interactive adventure—combining the playful rewards of Duolingo with the practical labs of TryHackMe—so that every user gains confidence and competence in basic online-safety practices.
               </p>
             </div>
 
