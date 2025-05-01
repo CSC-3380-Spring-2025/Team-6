@@ -1,9 +1,13 @@
 # CyberDojo : Team 6
 # Members
 Project Manager: Maddie Brown (maddieslayy)
+
 Communications Lead: Thomas Doan (tdoan19)
+
 Git Master: William Hays (Williamhays27)
+
 Design Lead: Ahmad Hijazi (ahmxdhijazi)
+
 Quality Assurance Tester: Brandon Facey (KyoukaHeiwa)
 
 # About Our Software
@@ -21,8 +25,11 @@ landscape of cybersecurity threats.
 
 # Important Links
 Kanban Board: https://sealteamsix.atlassian.net/jira/software/projects/KAN/boards/1
-Designs: https://www.figma.com/design/RKBsFCjHKgnBgtJlDneJ3n/Login-Main-Pages?node-id=0-1&p=f&t=QIvF6oXn0JBb2Md3-0
-Styles Guide(s):https://magicui.design/, http://ui.shadcn.com/, 
+
+Designs: https://www.figma.com/design/RKBsFCjHKgnBgtJlDneJ3n/
+Login-Main-Pages?node-id=0-1&p=f&t=QIvF6oXn0JBb2Md3-0
+
+Styles Guide(s):https://magicui.design/, http://ui.shadcn.com/
 
 # How to Run Dev and Test Environment
 
