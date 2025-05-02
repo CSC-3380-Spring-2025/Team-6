@@ -32,9 +32,12 @@ const ProfilePage: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-black via-[#0e0e1f] to-black text-white flex flex-col items-center justify-center px-4 py-8">
       <div className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-8 shadow-lg max-w-md w-full">
         <h1 className="text-3xl font-bold text-center text-white mb-6">
-          Welcome, <span className="text-rose-400">{profileData.displayName}</span>
+          Welcome,{" "}
+          <span className="text-rose-400">{profileData.displayName}</span>
         </h1>
-        <p className="text-center text-white/80 mb-8">Email: {profileData.email}</p>
+        <p className="text-center text-white/80 mb-8">
+          Email: {profileData.email}
+        </p>
 
         <div className="space-y-4">
           <h2 className="text-xl font-semibold border-b border-white/20 pb-2 mb-4 text-white">
@@ -43,20 +46,44 @@ const ProfilePage: React.FC = () => {
           <ul className="space-y-3">
             <li className="flex justify-between items-center">
               <span>Password Security</span>
-              <span className={`font-bold ${profileData.progress?.passwordSecurity ? "text-green-400" : "text-gray-400"}`}>
-                {profileData.progress?.passwordSecurity ? "✓ Completed" : "Incomplete"}
+              <span
+                className={`font-bold ${
+                  profileData.progress?.passwordSecurity
+                    ? "text-green-400"
+                    : "text-gray-400"
+                }`}
+              >
+                {profileData.progress?.passwordSecurity
+                  ? "✓ Completed"
+                  : "Incomplete"}
               </span>
             </li>
             <li className="flex justify-between items-center">
               <span>Physical Security</span>
-              <span className={`font-bold ${profileData.progress?.physicalSecurity ? "text-green-400" : "text-gray-400"}`}>
-                {profileData.progress?.physicalSecurity ? "✓ Completed" : "Incomplete"}
+              <span
+                className={`font-bold ${
+                  profileData.progress?.physicalSecurity
+                    ? "text-green-400"
+                    : "text-gray-400"
+                }`}
+              >
+                {profileData.progress?.physicalSecurity
+                  ? "✓ Completed"
+                  : "Incomplete"}
               </span>
             </li>
             <li className="flex justify-between items-center">
               <span>Phishing Awareness</span>
-              <span className={`font-bold ${profileData.progress?.phishingAwareness ? "text-green-400" : "text-gray-400"}`}>
-                {profileData.progress?.phishingAwareness ? "✓ Completed" : "Incomplete"}
+              <span
+                className={`font-bold ${
+                  profileData.progress?.phishingAwareness
+                    ? "text-green-400"
+                    : "text-gray-400"
+                }`}
+              >
+                {profileData.progress?.phishingAwareness
+                  ? "✓ Completed"
+                  : "Incomplete"}
               </span>
             </li>
           </ul>
@@ -68,6 +95,51 @@ const ProfilePage: React.FC = () => {
         >
           Back to Home
         </button>
+      </div>
+      <div className="bg-white/5 border mt-3 border-white/10 backdrop-blur-md rounded-2xl pb-8 pt-3 shadow-lg max-w-md w-full">
+        <h1 className="flex justify-center mb-4 font-extrabold text-gray-900 dark:text-white">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400 text-3xl font-bold text-center">
+            Badges
+          </span>
+        </h1>
+        <ul className="space-y-3">
+          <li className="flex justify-between items-center">
+            <span className="text-center">Password Security</span>
+            <img
+              src={
+                profileData.progress?.passwordSecurity
+                  ? "/password.png"
+                  : "/diamond.png"
+              }
+              alt="Password Security Badge"
+              className="w-18 h-20"
+            />
+          </li>
+          <li className="flex justify-between items-center">
+            <span className="text-center">Physical Security</span>
+            <img
+              src={
+                profileData.progress?.physicalSecurity
+                  ? "/physical.png"
+                  : "/diamond.png"
+              }
+              alt="Physical Security Badge"
+              className="w-18 h-20"
+            />
+          </li>
+          <li className="flex justify-between items-center">
+            <span className="text-center">Phishing Awareness</span>
+            <img
+              src={
+                profileData.progress?.phishingAwareness
+                  ? "/phishing.png"
+                  : "/diamond.png"
+              }
+              alt="Phishing Awareness Badge"
+              className="w-18 h-20"
+            />
+          </li>
+        </ul>
       </div>
     </div>
   );
