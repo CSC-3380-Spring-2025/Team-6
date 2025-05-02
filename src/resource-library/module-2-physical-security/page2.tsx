@@ -79,10 +79,8 @@ export default function Module2Page() {
       {/* Main Content */}
       <div className="relative z-10 resource-library" onMouseUp={handleMouseUp}>
         {/* Back Button */}
-        <button
-          className="px-8 py-4 bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-500 hover:to-rose-400 rounded-xl font-semibold text-white shadow-lg shadow-rose-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/40 flex items-center justify-center gap-2"
-          onClick={() => navigate("/")}
-        >
+        <button className="btn bg-red-600 text-white p-3 pointer-events-auto flex items-center gap-2 rounded-lg mt-4 mx-auto"
+        onClick={() => navigate("/")}>
           ← Back to Modules
         </button>
 
