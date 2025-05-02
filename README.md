@@ -34,14 +34,38 @@ Styles Guide(s):https://magicui.design/, http://ui.shadcn.com/
 # How to Run Dev and Test Environment
 
 ## Dependencies
-- List all dependencies here
-- Don't forget to include versions
+List of Dependencies, sourced from package.json file
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.126",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "firebase": "^11.6.1",
+    "lucide-react": "^0.485.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-firebase-hooks": "^5.1.1",
+    "react-router-dom": "^7.5.2",
+    "react-scripts": "5.0.1",
+    "tailwind-merge": "^3.0.2",
+    "tw-animate-css": "^1.2.5",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
 
 ### Downloading Dependencies
 Describe where to download the dependencies here. Some will likely require a web download. Provide links here. For IDE extensions, make sure your project works with the free version of them, and detail which IDE(s) these are available in. 
 
 ## Commands
-Describe how the commands and process to launch the project on the main branch in such a way that anyone working on the project knows how to check the affects of any code they add.
+Before launching CyberDojo, type the following commands into the VS Code terminal when you open up the codebase. After installing all three, you can type in "npm start" to start the CyberDojo website in browser.
+
+Step 1. Clone the repository https://github.com/CSC-3380-Spring-2025/Team-6.git 
+
+Step 2. Use npm install on the following:
 
 ```sh
 npm install react
@@ -55,21 +79,8 @@ npm install firebase
 npm install tailwind
 ```
 
-It is very common in these sections to see code in peculiar boxes to help them stand out. Check the markdown section of the Project Specifications to see how to add more / customize these.
+Step 3. Use npm start to launch CyberDojo.
 
-```python
-def code_highlight_example(m: int, m: float, s: str) -> str:
-	return s + str(n*m)
-```
-
-```java
-public static void main(String[] args){
-	System.out.println("Hello, World!");
-}
-```
-
-```c#
-static void Main(){
-	Console.WriteLine("Hello, World!");
-}
+```sh
+npm start
 ```
