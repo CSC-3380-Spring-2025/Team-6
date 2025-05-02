@@ -98,11 +98,11 @@ const ProfilePage: React.FC = () => {
       </div>
       <div className="bg-white/5 border mt-3 border-white/10 backdrop-blur-md rounded-2xl pb-8 pt-3 shadow-lg max-w-md w-full">
         <h1 className="flex justify-center mb-4 font-extrabold text-gray-900 dark:text-white">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400 text-3xl font-bold text-center mb-6">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400 text-3xl font-bold text-center">
             Badges
           </span>
         </h1>
-        <ul className="space-y-4">
+        <ul className="space-y-3">
           <li className="flex justify-between items-center">
             <span className="text-center">Password Security</span>
             <img
@@ -112,7 +112,7 @@ const ProfilePage: React.FC = () => {
                   : "/diamond.png"
               }
               alt="Password Security Badge"
-              className="w-12 h-12"
+              className="w-18 h-20"
             />
           </li>
           <li className="flex justify-between items-center">
@@ -124,7 +124,7 @@ const ProfilePage: React.FC = () => {
                   : "/diamond.png"
               }
               alt="Physical Security Badge"
-              className="w-12 h-12"
+              className="w-18 h-20"
             />
           </li>
           <li className="flex justify-between items-center">
@@ -136,7 +136,7 @@ const ProfilePage: React.FC = () => {
                   : "/diamond.png"
               }
               alt="Phishing Awareness Badge"
-              className="w-12 h-12"
+              className="w-18 h-20"
             />
           </li>
         </ul>
