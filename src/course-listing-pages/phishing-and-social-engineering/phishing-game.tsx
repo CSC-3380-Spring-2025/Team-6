@@ -237,7 +237,7 @@ const PhishingGame = () => {
         // Feedback display area
         <div className={`mt-4 p-4 rounded-md border-l-4 ${isCorrect ? 'bg-green-50 border-green-500' : 'bg-red-50 border-red-500'} shadow-sm`}> {/* Added border/shadow */}
           <h4 className={`font-bold text-lg mb-2 ${isCorrect ? 'text-green-700' : 'text-red-700'}`}> {/* Colored text */}
-            {isCorrect ? 'Correct!' : 'Incorrect!'} {/* Slightly different wording */}
+            {isCorrect ? 'Right!' : 'Wrong!'} {/* Slightly different wording */}
           </h4>
 
           <p className="mb-3 text-gray-800">{currentExample.explanation}</p> {/* Darker text */}
