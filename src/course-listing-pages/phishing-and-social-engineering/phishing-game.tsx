@@ -119,17 +119,11 @@ const PhishingGame = () => {
   // Event handlers
 
   const handleAnswer = (guessedPhishing: boolean) => {
-    // Prevent multiple answers for the same question
-    if (!currentExample || showFeedback) {
-      console.warn("Answer attempt rejected: feedback already shown or no current example.");
-      return;
-    }
-
     const correct = guessedPhishing === currentExample.isPhishing;
     setIsCorrect(correct);
 
     if (correct) {
-      // Use functional update form - good practice if new state depends on old
+      // Use functional update form 
       setScore(prevScore => prevScore + 1);
     }
 
@@ -185,7 +179,7 @@ const PhishingGame = () => {
             Play Again
           </button>
 
-          {/* Basic navigation, might use react-router in a real app */}
+          {/* Basic navigation */}
           <button
             onClick={() => window.location.href = '/'}
             className="px-6 py-2 bg-gray-300 hover:bg-gray-400 text-gray-800 rounded-lg font-bold shadow"
@@ -205,8 +199,8 @@ const PhishingGame = () => {
 
   // Main game screen
   return (
-    <div className="max-w-2xl mx-auto p-4 sm:p-6 bg-gray-100 min-h-screen"> {/* Lighter bg */}
-      <h1 className="text-3xl font-bold text-center mb-6 text-gray-900">Spot the Phish!</h1> {/* Darker title */}
+    <div className="max-w-2xl mx-auto p-4 sm:p-6 bg-gray-100 min-h-screen">
+      <h1 className="text-3xl font-bold text-center mb-6 text-gray-900">Spot the Phish!</h1>
 
       <Scoreboard
         score={score}
@@ -216,40 +210,38 @@ const PhishingGame = () => {
 
       <ExampleCard data={currentExample} />
 
-      {/* Show buttons OR feedback */}
+      {/* Made it so it either shows the buttons or the feedback component */}
       {!showFeedback ? (
-        // Choice buttons
         <div className="flex justify-center space-x-4 mb-4">
           <button
-            onClick={() => handleAnswer(false)} // Pass 'false' for Legitimate
-            className="px-6 py-2 rounded-lg font-bold text-white bg-green-600 hover:bg-green-700 shadow" // Added shadow
+            onClick={() => handleAnswer(false)} // Legitimate guess
+            className="px-6 py-2 rounded-lg font-bold text-white bg-green-600 hover:bg-green-700 shadow"
           >
             Legitimate
           </button>
           <button
-            onClick={() => handleAnswer(true)} // Pass 'true' for Phishing
-            className="px-6 py-2 rounded-lg font-bold text-white bg-red-600 hover:bg-red-700 shadow" // Added shadow
+            onClick={() => handleAnswer(true)} // Phishing guess
+            className="px-6 py-2 rounded-lg font-bold text-white bg-red-600 hover:bg-red-700 shadow"
           >
             Phishing
           </button>
         </div>
       ) : (
         // Feedback display area
-        <div className={`mt-4 p-4 rounded-md border-l-4 ${isCorrect ? 'bg-green-50 border-green-500' : 'bg-red-50 border-red-500'} shadow-sm`}> {/* Added border/shadow */}
-          <h4 className={`font-bold text-lg mb-2 ${isCorrect ? 'text-green-700' : 'text-red-700'}`}> {/* Colored text */}
-            {isCorrect ? 'Right!' : 'Wrong!'} {/* Slightly different wording */}
+        <div className={`mt-4 p-4 rounded-md border-l-4 ${isCorrect ? 'bg-green-50 border-green-500' : 'bg-red-50 border-red-500'} shadow-sm`}>
+          <h4 className={`font-bold text-lg mb-2 ${isCorrect ? 'text-green-700' : 'text-red-700'}`}>
+            {isCorrect ? 'Right!' : 'Wrong!'}
           </h4>
 
-          <p className="mb-3 text-gray-800">{currentExample.explanation}</p> {/* Darker text */}
+          <p className="mb-3 text-gray-800">{currentExample.explanation}</p>
 
-          {/* Only show hints section if hints actually exist */}
           {currentExample.hints && currentExample.hints.length > 0 && (
             <div className="mb-3">
               <p className="font-semibold text-sm text-gray-600">Red flags:</p>
-              <ul className="list-disc list-inside pl-2 text-sm text-gray-600 space-y-0.5"> {/* Adjusted list styling */}
-                {/* Need keys when mapping */}
+              <ul className="list-disc list-inside pl-2 text-sm text-gray-600 space-y-0.5">
+                {/* Using index as key is common for static lists */}
                 {currentExample.hints.map((hint, index) => (
-                  <li key={`${currentExample.id}-hint-${index}`}>{hint}</li> // More robust key
+                  <li key={index}>{hint}</li> // Simplified key
                 ))}
               </ul>
             </div>
@@ -259,7 +251,7 @@ const PhishingGame = () => {
             onClick={nextQuestion}
             className="mt-2 px-4 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-bold shadow-sm"
           >
-            {/* Change button text on the last question */}
+            {/* Ternary operator for button text */}
             {curIndex >= examples.length - 1 ? 'Finish Game' : 'Next Question'}
           </button>
         </div>
