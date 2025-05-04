@@ -94,7 +94,6 @@ function ExampleCard({ data }: { data: Example }) {
         {renderHeader()}
       </div>
       <hr className="my-2" /> {/* Adjusted margin */}
-      {/* Be careful with this! Only use if HTML source is trusted. */}
       <div
         className="text-gray-700 prose prose-sm max-w-none" // Added prose plugin classes
         dangerouslySetInnerHTML={{ __html: data.body }}
@@ -107,14 +106,14 @@ function ExampleCard({ data }: { data: Example }) {
 const PhishingGame = () => {
   // Explicitly type state for clarity, even if inferred
   const [examples, setExamples] = useState<Example[]>(EXAMPLES);
-  const [curIndex, setcurIndex] = useState<number>(0);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
   const [showFeedback, setShowFeedback] = useState<boolean>(false);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [gameOver, setGameOver] = useState<boolean>(false);
 
   // Derived state - get the current example based on index
-  const currentExample = examples[curIndex];
+  const currentExample = examples[currentIndex];
 
   // Event handlers
 
@@ -134,13 +133,13 @@ const PhishingGame = () => {
     setShowFeedback(false); // Hide feedback first
     setIsCorrect(null);    // Reset correctness indicator
 
-    const nextIdx = curIndex + 1;
-    if (nextIdx >= examples.length) {
+    const nextIndex = currentIndex + 1;
+    if (nextIndex >= examples.length) {
       // Last question answered, end the game
       setGameOver(true);
     } else {
       // Move to the next example
-      setcurIndex(nextIdx);
+      setCurrentIndex(nextIndex);
     }
   };
 
@@ -148,7 +147,7 @@ const PhishingGame = () => {
     console.log("Restarting game...");
     // Reset all game state variables
     setScore(0);
-    setcurIndex(0);
+    setCurrentIndex(0);
     setShowFeedback(false);
     setIsCorrect(null);
     setGameOver(false);
@@ -193,7 +192,7 @@ const PhishingGame = () => {
 
   // Defensive check in case examples array is empty or index is somehow wrong
   if (!currentExample) {
-    console.error("Error: Could not get current example for index", curIndex);
+    console.error("Error: Could not get current example for index", currentIndex);
     return <p className="text-red-500 p-4">Something went wrong trying to load the example. Please refresh.</p>;
   }
 
@@ -205,12 +204,12 @@ const PhishingGame = () => {
       <Scoreboard
         score={score}
         total={examples.length}
-        current={curIndex + 1} // Show 1-based index
+        current={currentIndex + 1} // Show 1-based index
       />
 
       <ExampleCard data={currentExample} />
 
-      {/* Made it so it either shows the buttons or the feedback component */}
+      {/* Made it so either the buttons or the feedback component are shown */}
       {!showFeedback ? (
         <div className="flex justify-center space-x-4 mb-4">
           <button
@@ -252,7 +251,7 @@ const PhishingGame = () => {
             className="mt-2 px-4 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-bold shadow-sm"
           >
             {/* Ternary operator for button text */}
-            {curIndex >= examples.length - 1 ? 'Finish Game' : 'Next Question'}
+            {currentIndex >= examples.length - 1 ? 'Finish Game' : 'Next Question'}
           </button>
         </div>
       )}
