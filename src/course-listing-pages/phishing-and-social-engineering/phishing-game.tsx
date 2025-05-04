@@ -151,8 +151,6 @@ const PhishingGame = () => {
     setShowFeedback(false);
     setIsCorrect(null);
     setGameOver(false);
-    // Maybe shuffle examples here in the future for better replayability?
-    // setExamples(shuffleArray([...EXAMPLES]));
   };
 
   // Rendering logic
