@@ -1,27 +1,43 @@
+// Directive indicating this is a client-side component (specific to frameworks like Next.js)
 "use client";
 
-import type React from "react";
+// Import React and necessary hooks
+import type React from "react"; // Type import for React specific usage
 import { useState, useEffect } from "react";
+// Import components and hooks from react-router-dom for navigation
 import { useNavigate, Link } from "react-router-dom";
+// Import specific icons from the lucide-react library
 import { Menu, User, CheckCircle, ChevronRight, Lock, Shield } from "lucide-react";
-import { auth, db } from "../../firebase"; 
-import { signOut } from "firebase/auth";
-import { doc, updateDoc } from "firebase/firestore";
+// Import Firebase authentication and Firestore database instances/functions
+import { auth, db } from "../../firebase"; // Assumes firebase config is in this path
+import { signOut } from "firebase/auth"; // Firebase function for signing out
+import { doc, updateDoc } from "firebase/firestore"; // Firestore functions for document referencing and updating
 
+
+// Define the CourseListing1 functional component using React.FC type
 const CourseListing1: React.FC = () => {
+  // Initialize the navigate function for programmatic navigation
   const navigate = useNavigate();
+  // State hook to manage the visibility of the main navigation menu dropdown
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // State hook to manage the visibility of the user profile dropdown
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  // State hook to store the current vertical scroll position of the window
   const [scrollPosition, setScrollPosition] = useState(0);
 
+  // useEffect hook to add and remove a scroll event listener
   useEffect(() => {
+    // Function to update the scroll position state
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
     };
+    // Add the event listener when the component mounts
     window.addEventListener("scroll", handleScroll);
+    // Cleanup function: Remove the event listener when the component unmounts
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, []); // Empty dependency array ensures this runs only once on mount and cleans up on unmount
 
+  // Function to scroll the window smoothly to the top
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -144,7 +160,9 @@ const CourseListing1: React.FC = () => {
           Security
         </h1>
 
+        {/* Container for informational content sections */}
         <div className="space-y-8 mb-10">
+          {/* Section: Introduction to Strong Passwords */}
           <div className="bg-gray-900 rounded-lg p-6 border-l-4 border-emerald-500">
             <h2 className="text-2xl font-bold mb-4 flex items-center">
               <Lock className="mr-2 text-emerald-500" />
@@ -158,6 +176,7 @@ const CourseListing1: React.FC = () => {
             </p>
           </div>
 
+          {/* Section: General text on password management */}
           <div className="bg-gray-900 rounded-lg p-6 ">
             <p className="text-gray-300 leading-relaxed">
               Protect your passwords like you'd protect your house keys. Of
@@ -172,6 +191,7 @@ const CourseListing1: React.FC = () => {
             </p>
           </div>
 
+          {/* Section: Principles of Strong Passwords */}
           <div className="bg-gray-900 rounded-lg p-6 ">
             <h2 className="text-2xl font-bold mb-4 flex items-center">
               <Shield className="mr-2 text-emerald-500" />
@@ -180,7 +200,8 @@ const CourseListing1: React.FC = () => {
             <p className="text-gray-300 mb-4">
               For maximum security, remember three principles:
             </p>
-
+            
+            {/* Container for the three principles */}
             <div className="space-y-6">
               <div className="bg-gray-800 rounded-lg p-4 border-4 border-sky-500">
                 <h3 className="text-xl font-bold mb-2 flex items-center">
@@ -238,7 +259,8 @@ const CourseListing1: React.FC = () => {
               </div>
             </div>
           </div>
-
+          
+          {/* Section: Review/Summary */}
           <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-lg p-6">
             <h2 className="text-2xl font-bold mb-4 flex items-center">
               <CheckCircle className="mr-2 text-emerald-500" />
@@ -247,6 +269,7 @@ const CourseListing1: React.FC = () => {
             <p className="text-gray-300 mb-4">
               Each of your passwords should be:
             </p>
+            {/* List summarizing the principles */}
             <ul className="list-none space-y-2">
               <li className="flex items-center text-gray-300">
                 <ChevronRight className="text-emerald-500 mr-2" />
@@ -270,26 +293,26 @@ const CourseListing1: React.FC = () => {
 
         <div className="flex justify-center mb-10">
         <button
-  className="btn bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 flex items-center"
-  onClick={async () => {
-    if (auth.currentUser) {
-      const userRef = doc(db, "users", auth.currentUser.uid);
-      try {
-        await updateDoc(userRef, {
-          "progress.passwordSecurity": true, 
-        });
-        console.log("Progress updated successfully!");
-      } catch (error) {
-        console.error("Error updating progress:", error);
-      }
-    } else {
-      console.error("No authenticated user found.");
-    }
-    navigate("/");
-  }}
->
-  <CheckCircle className="mr-2" /> Mark as Complete
-</button>
+          className="btn bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 flex items-center"
+          onClick={async () => {
+            if (auth.currentUser) {
+              const userRef = doc(db, "users", auth.currentUser.uid);
+              try {
+                await updateDoc(userRef, {
+                  "progress.passwordSecurity": true, 
+                });
+                console.log("Progress updated successfully!");
+              } catch (error) {
+                console.error("Error updating progress:", error);
+              }
+            } else {
+              console.error("No authenticated user found.");
+            }
+            navigate("/");
+          }}
+        >
+          <CheckCircle className="mr-2" /> Mark as Complete
+        </button>
 
         </div>
 
