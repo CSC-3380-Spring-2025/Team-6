@@ -25,14 +25,15 @@ const SettingsPage: React.FC = () => {
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         const data = docSnap.data();
-        if (data.settings) {
-          setTheme(data.settings.theme || "light");
-          setLanguage(data.settings.language || "en");
-          setDisplayName(data.settings.displayName || "");
-          setEmailNotif(data.settings.emailNotif ?? true);
-          setDarkMode(data.settings.darkMode ?? false);
-          setTwoFactor(data.settings.twoFactor ?? false);
-        }
+        // load root displayName if present, else fall back to settings.displayName
+        setDisplayName(
+          data.displayName ?? data.settings?.displayName ?? ""
+        );
+        setTheme(data.settings?.theme || "light");
+        setLanguage(data.settings?.language || "en");
+        setEmailNotif(data.settings?.emailNotif ?? true);
+        setDarkMode(data.settings?.darkMode ?? false);
+        setTwoFactor(data.settings?.twoFactor ?? false);
       }
       setLoading(false);
     };
@@ -44,26 +45,28 @@ const SettingsPage: React.FC = () => {
       setSavedMessage("Display name is required.");
       return;
     }
+    if (!auth.currentUser) return;
 
-    if (auth.currentUser) {
-      const docRef = doc(db, "users", auth.currentUser.uid);
-      await setDoc(
-        docRef,
-        {
-          settings: {
-            theme,
-            language,
-            displayName,
-            emailNotif,
-            darkMode,
-            twoFactor,
-          },
+    const docRef = doc(db, "users", auth.currentUser.uid);
+    await setDoc(
+      docRef,
+      {
+        // update the root displayName field
+        displayName,
+        // also merge in nested settings
+        settings: {
+          theme,
+          language,
+          displayName,
+          emailNotif,
+          darkMode,
+          twoFactor,
         },
-        { merge: true }
-      );
-      setSavedMessage("Settings successfully updated!");
-      setTimeout(() => setSavedMessage(""), 3000);
-    }
+      },
+      { merge: true }
+    );
+    setSavedMessage("Settings successfully updated!");
+    setTimeout(() => setSavedMessage(""), 3000);
   };
 
   if (loading) {
@@ -170,13 +173,17 @@ const SettingsPage: React.FC = () => {
 
           <button
             className="flex-1 py-3 bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-500 hover:to-gray-400 rounded-xl font-semibold text-white shadow-lg hover:shadow-xl transition"
-            onClick={() => navigate("/home")}
+            onClick={() => navigate("/")}
           >
             Exit to Home
           </button>
         </div>
 
-        {savedMessage && <p className="mt-4 text-sm text-green-400 text-center">{savedMessage}</p>}
+        {savedMessage && (
+          <p className="mt-4 text-sm text-green-400 text-center">
+            {savedMessage}
+          </p>
+        )}
       </div>
     </div>
   );
