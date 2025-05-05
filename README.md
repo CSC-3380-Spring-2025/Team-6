@@ -35,6 +35,7 @@ Styles Guide(s):https://magicui.design/, http://ui.shadcn.com/
 
 ## Dependencies
 List of Dependencies, sourced from package.json file
+
     "@testing-library/dom": "^10.4.0",
 
     "@testing-library/jest-dom": "^6.6.3",
@@ -74,7 +75,7 @@ List of Dependencies, sourced from package.json file
     "tw-animate-css": "^1.2.5",
 
     "typescript": "^4.9.5",
-	
+
     "web-vitals": "^2.1.4"
 
 ### Downloading Dependencies
