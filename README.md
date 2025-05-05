@@ -36,25 +36,45 @@ Styles Guide(s):https://magicui.design/, http://ui.shadcn.com/
 ## Dependencies
 List of Dependencies, sourced from package.json file
     "@testing-library/dom": "^10.4.0",
+
     "@testing-library/jest-dom": "^6.6.3",
+
     "@testing-library/react": "^16.2.0",
+
     "@testing-library/user-event": "^13.5.0",
+
     "@types/jest": "^27.5.2",
+
     "@types/node": "^16.18.126",
+
     "@types/react": "^19.0.12",
+
     "@types/react-dom": "^19.0.4",
+
     "class-variance-authority": "^0.7.1",
+
     "clsx": "^2.1.1",
+
     "firebase": "^11.6.1",
+
     "lucide-react": "^0.485.0",
+
     "react": "^19.1.0",
+
     "react-dom": "^19.1.0",
+
     "react-firebase-hooks": "^5.1.1",
+
     "react-router-dom": "^7.5.2",
+
     "react-scripts": "5.0.1",
+
     "tailwind-merge": "^3.0.2",
+
     "tw-animate-css": "^1.2.5",
+
     "typescript": "^4.9.5",
+	
     "web-vitals": "^2.1.4"
 
 ### Downloading Dependencies
