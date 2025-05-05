@@ -1,43 +1,198 @@
+// Directive indicating this is a client-side component (specific to frameworks like Next.js)
 "use client";
 
-import type React from "react";
-import { useNavigate } from "react-router-dom";
+// Import React and necessary hooks
+import type React from "react"; // Type import for React specific usage
+import { useState, useEffect } from "react";
+// Import components and hooks from react-router-dom for navigation
+import { useNavigate, Link } from "react-router-dom";
+// Import specific icons from the lucide-react library
 import {
   AlertTriangle,
-  BookOpen,
   CheckCircle,
   FileWarning,
   Shield,
   HelpCircle,
   User,
+  Menu,
 } from "lucide-react";
-import { auth, db } from "../../firebase";
-import { doc, updateDoc } from "firebase/firestore";
+// Import Firebase authentication and Firestore database instances/functions
+import { auth, db } from "../../firebase"; // Assumes firebase config is in this path
+import { signOut } from "firebase/auth"; // Firebase function for signing out
+import { doc, updateDoc } from "firebase/firestore"; // Firestore functions for document referencing and updating
 
+// Define the CourseListing3 functional component using React.FC type
 const CourseListing3: React.FC = () => {
+  // Initialize the navigate function for programmatic navigation
   const navigate = useNavigate();
+  // State hook to manage the visibility of the main navigation menu dropdown
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // State hook to manage the visibility of the user profile dropdown
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  // State hook to store the current vertical scroll position of the window
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  // useEffect hook to add and remove a scroll event listener
+  useEffect(() => {
+    // Function to update the scroll position state
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+    // Add the event listener when the component mounts
+    window.addEventListener("scroll", handleScroll);
+    // Cleanup function: Remove the event listener when the component unmounts
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []); // Empty dependency array ensures this runs only once on mount and cleans up on unmount
+
+  // Function to scroll the window smoothly to the top
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  /**
+   * Asynchronous function to handle marking the course module (Phishing Awareness) as complete.
+   * Updates the user's progress in Firestore and navigates to the homepage.
+   */
   const handleFinish = async () => {
+    // Check if a user is currently logged in via Firebase Auth
     if (auth.currentUser) {
+      // Create a reference to the current user's document in the 'users' collection
       const userRef = doc(db, "users", auth.currentUser.uid);
       try {
+        // Attempt to update the user's document in Firestore
         await updateDoc(userRef, {
+          // Set the 'phishingAwareness' field within the 'progress' map to true
           "progress.phishingAwareness": true,
         });
         console.log("Progress updated: phishing marked complete");
       } catch (error) {
+        // Log any errors during the Firestore update process
         console.error("Error updating progress:", error);
       }
+      // Navigate the user to the homepage after attempting the update
       navigate("/");
     } else {
+      // Log an error if no authenticated user is found
       console.error("No authenticated user found.");
+      // Navigate the user to the homepage even if not logged in
       navigate("/");
     }
   };
 
   return (
     <div className="bg-black min-h-screen text-white m-0 p-0 overflow-x-hidden">
+      <div
+        className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrollPosition > 50
+            ? "bg-black/80 backdrop-blur-md shadow-lg"
+            : "bg-transparent"
+          }`}
+      >
+        <div className="container mx-auto flex justify-between items-center h-20 px-4">
+          <div className="relative">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 rounded-full hover:bg-white/10 transition-colors"
+            >
+              <Menu className="h-6 w-6 text-white" />
+            </button>
+            {isMenuOpen && (
+              <ul className="absolute left-0 mt-3 w-56 p-2 shadow-xl bg-black/90 backdrop-blur-md rounded-xl z-30 border border-white/10">
+                <li>
+                  <Link
+                    to="/"
+                    className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors"
+                  >
+                    Homepage
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/about"
+                    className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors"
+                  >
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/resource-library"
+                    className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors"
+                  >
+                    Resource Library
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/user-blogs"
+                    className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors"
+                  >
+                    Blog
+                  </Link>
+                </li>
+              </ul>
+            )}
+          </div>
+
+          <div className="cursor-pointer" onClick={scrollToTop}>
+            <div className="w-auto h-10 relative">
+              <img
+                src="CyberLogo.png"
+                alt="Cyber Logo"
+                className="h-10 cursor-pointer"
+              />
+            </div>
+          </div>
+
+          <div className="relative">
+            <button
+              onClick={() => setIsProfileOpen(!isProfileOpen)}
+              className="p-2 rounded-full hover:bg-white/10 transition-colors"
+            >
+              <User className="h-6 w-6 text-white" />
+            </button>
+            {isProfileOpen && (
+              <ul className="absolute right-0 mt-3 w-56 p-2 shadow-xl bg-black/90 backdrop-blur-md rounded-xl z-30 border border-white/10">
+                <li>
+                  <a
+                    onClick={() => navigate("/profile")}
+                    className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors cursor-pointer"
+                  >
+                    Profile
+                  </a>
+                </li>
+                <li>
+                  <a
+                    onClick={() => navigate("/settings")}
+                    className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors cursor-pointer"
+                  >
+                    Settings
+                  </a>
+                </li>
+                <li>
+                  <a
+                    onClick={async () => {
+                      try {
+                        await signOut(auth);
+                        navigate("/");
+                      } catch (error) {
+                        console.error("Logout failed:", error);
+                      }
+                    }}
+                    className="flex items-center gap-2 px-4 py-3 hover:bg-white/10 rounded-lg text-white transition-colors cursor-pointer"
+                  >
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Main content area with padding and max-width */}
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <h1 className="mb-6 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
+        {/* Page Title: Phishing and Social Engineering */}
+        <h1 className="mb-6 mt-10 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
           <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
             Phishing
           </span>{" "}
@@ -46,7 +201,8 @@ const CourseListing3: React.FC = () => {
             Social Engineering
           </span>
         </h1>
-
+        
+        {/* Container for informational content sections */}
         <div className="space-y-8 mb-10">
           <div className="bg-gray-900 rounded-lg p-6 border-l-4 border-red-500 ">
             <h2 className="text-2xl font-bold mb-4 flex items-center">
@@ -250,6 +406,7 @@ const CourseListing3: React.FC = () => {
           </div>
         </div>
 
+        {/* "Mark as Complete" Button section */}
         <div className="flex justify-center mb-10">
           <button
             className="btn bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 flex items-center"
@@ -259,6 +416,7 @@ const CourseListing3: React.FC = () => {
           </button>
         </div>
 
+        {/* Carousel section for related activities */}
         <div className="flex carousel w-full mx-auto h-64 my-10 rounded-xl overflow-hidden ">
           {/* Slide 1 */}
           <div id="slide1" className="carousel-item relative w-full">
@@ -361,4 +519,5 @@ const CourseListing3: React.FC = () => {
   );
 };
 
+// Export the CourseListing3 component for use in other parts of the application
 export default CourseListing3;
