@@ -26,10 +26,9 @@ landscape of cybersecurity threats.
 # Important Links
 Kanban Board: https://sealteamsix.atlassian.net/jira/software/projects/KAN/boards/1
 
-Designs: https://www.figma.com/design/RKBsFCjHKgnBgtJlDneJ3n/
-Login-Main-Pages?node-id=0-1&p=f&t=QIvF6oXn0JBb2Md3-0
+Designs: https://www.figma.com/design/RKBsFCjHKgnBgtJlDneJ3n/Login-Main-Pages?node-id=0-1&p=f&t=QIvF6oXn0JBb2Md3-0
 
-Styles Guide(s):https://magicui.design/, http://ui.shadcn.com/
+Styles Guide(s): https://google.github.io/styleguide/tsguide.html
 
 # How to Run Dev and Test Environment
 
