@@ -84,9 +84,19 @@ Describe where to download the dependencies here. Some will likely require a web
 ## Commands
 Before launching CyberDojo, type the following commands into the VS Code terminal when you open up the codebase. After installing all three, you can type in "npm start" to start the CyberDojo website in browser.
 
-Step 1. Clone the repository https://github.com/CSC-3380-Spring-2025/Team-6.git 
+Step 1A. Download Git and Node.js using the following links: https://git-scm.com/downloads/win, https://nodejs.org/en/download
 
-Step 2. Use npm install on the following:
+    Step 1B. Some problems may occur when downloading Node.js. Some fixes include: Running powershell as adminstrator and typing in the following command: fnm env --use-on-cd | Out-String | Invoke-Expression
+
+    Step 1C. You may run into a problem that does not allow you to run scripts, which stops you from using npm -v.
+
+    If this occurs, run the following command to bypass that: Set-ExecutionPolicy RemoteSigned -Scope CurrentUser 
+    
+    After this, you should be able to freely use npm commands.
+
+Step 2. Clone the repository https://github.com/CSC-3380-Spring-2025/Team-6.git 
+
+Step 3. Use npm install on the following:
 
 ```sh
 npm install react
@@ -96,11 +106,7 @@ npm install react
 npm install firebase
 ```
 
-```sh
-npm install tailwind
-```
-
-Step 3. Use npm start to launch CyberDojo.
+Step 4. Use npm start to launch CyberDojo.
 
 ```sh
 npm start
