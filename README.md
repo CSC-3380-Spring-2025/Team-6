@@ -86,7 +86,8 @@ Before launching CyberDojo, type the following commands into the VS Code termina
 
 Step 1A. Download Git and Node.js using the following links: https://git-scm.com/downloads/win, https://nodejs.org/en/download
 
- Step 1B. Some problems may occur when downloading Node.js. Some fixes include: Running powershell as adminstrator and typing in the following command: fnm env --use-on-cd | Out-String | Invoke-Expression
+Step 1B. Some problems may occur when downloading Node.js. Some fixes include: Running powershell as adminstrator and typing in the following command: fnm env --use-on-cd | Out-String | Invoke-Expression
+This command allows you to do the fnm install 22 command listed on the Node.js link.
 
 Step 1C. You may run into a problem that does not allow you to run scripts, which stops you from using npm -v.
 If this occurs, run the following command to bypass that: Set-ExecutionPolicy RemoteSigned -Scope CurrentUser 
