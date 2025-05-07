@@ -255,7 +255,7 @@ const SettingsPage: React.FC = () => {
           </p>
         )}
       </div> {/* End Settings Card */}
-    </div> {/* End Page Container */}
+    </div> 
   );
 };
 
