@@ -105,7 +105,7 @@ npm install firebase
 ```
 
 Step 4. Use npm start to launch CyberDojo.
-
+Also the USERNAME AND PASSWORD have length requirments so make sure to fulfill those for the sign in feature(if it is giving you issues)
 ```sh
 npm start
 ```
