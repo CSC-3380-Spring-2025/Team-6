@@ -1,18 +1,21 @@
-
 import React, { useState, useEffect } from 'react';
 
-interface IExample {
+// Types
+type ExampleType = 'email' | 'sms';
+
+interface Example {
   id: number;
-  type: 'email' | 'sms';
+  type: ExampleType;
   sender: string;
-  subject?: string; // Email only
+  subject?: string;
   body: string;
   isPhishing: boolean;
   explanation: string;
   hints?: string[];
 }
 
-const examplesData: IExample[] = [
+// Just made simple examples for now, an API could be used to fetch actual examples or include more variety
+const EXAMPLES: Example[] = [
   {
     id: 1,
     type: 'email',
@@ -43,241 +46,212 @@ const examplesData: IExample[] = [
   }
 ];
 
+// Components
+
+// Simple Scoreboard display
 interface ScoreboardProps {
-  currentScore: number;
-  totalQuestions: number;
-  questionNumber?: number;
+  score: number;
+  total: number;
+  current?: number; // Optional current question number
 }
 
-const Scoreboard: React.FC<ScoreboardProps> = ({ currentScore, totalQuestions, questionNumber }) => {
+function Scoreboard({ score, total, current }: ScoreboardProps) {
   return (
-    <div className="mb-4 p-3 bg-white rounded-lg text-center ">
-      <p className="text-lg font-semibold text-black">
-        Score: {currentScore} / {totalQuestions}
-        {questionNumber && <span className="ml-4 text-sm">Question: {questionNumber} of {totalQuestions}</span>}
+    <div className="mb-4 p-3 bg-white rounded-lg text-center shadow-sm"> {/* Added shadow */}
+      <p className="text-lg font-semibold text-gray-800"> {/* Darker text */}
+        Score: {score} / {total}
+        {current !== undefined && ( // Slightly more explicit check
+          <span className="ml-4 text-sm text-gray-600">
+            Question: {current} of {total}
+          </span>
+        )}
       </p>
     </div>
   );
-};
-
-interface ExampleDisplayProps {
-  example: IExample;
 }
 
-const ExampleDisplay: React.FC<ExampleDisplayProps> = ({ example }) => {
+// Card displays a single example
+function ExampleCard({ data }: { data: Example }) {
+  // Helper to render email/sms specific headers
+  const renderHeader = () => {
+    if (data.type === 'email') {
+      return (
+        <>
+          <p><span className="font-bold">From:</span> {data.sender}</p>
+          {/* Only show subject if it exists */}
+          {data.subject && <p><span className="font-bold">Subject:</span> {data.subject}</p>}
+        </>
+      );
+    }
+    // SMS just gets sender
+    return <p><span className="font-bold">From:</span> {data.sender}</p>;
+  }
+
   return (
-    <div className="mb-6 p-4 border border-gray-300 rounded-lg bg-white ">
-      <h3 className="text-lg font-semibold mb-3 capitalize text-black">{example.type.replace('_', ' ')} Example</h3>
-      {example.type === 'email' && (
-        <div className="mb-2 text-sm text-black">
-          <p><span className="font-medium text-black">From:</span> {example.sender}</p>
-          <p><span className="font-medium text-black">Subject:</span> {example.subject}</p>
-        </div>
-      )}
-      {example.type === 'sms' && (
-        <div className="mb-2 text-sm text-black">
-          <p><span className="font-medium text-black">From:</span> {example.sender}</p>
-        </div>
-      )}
+    <div className="mb-6 p-4 border border-gray-300 rounded-lg bg-white">
+      <h3 className="text-lg font-bold mb-3 text-black uppercase">{data.type}</h3> {/* Uppercase type */}
+      <div className="mb-2 text-sm text-black space-y-1"> {/* Added space-y */}
+        {renderHeader()}
+      </div>
+      <hr className="my-2" /> {/* Adjusted margin */}
       <div
-        className="text-gray-700 prose prose-sm max-w-none"
-        dangerouslySetInnerHTML={{ __html: example.body }}
+        className="text-gray-700 prose prose-sm max-w-none" // Added prose plugin classes
+        dangerouslySetInnerHTML={{ __html: data.body }}
       />
     </div>
   );
-};
-
-interface ChoiceButtonsProps {
-  onChoice: (userChoiceIsPhishing: boolean) => void;
-  disabled: boolean;
 }
 
-const ChoiceButtons: React.FC<ChoiceButtonsProps> = ({ onChoice, disabled }) => {
-  return (
-    <div className="flex justify-center space-x-4 mb-4">
-      <button
-        onClick={() => onChoice(false)}
-        disabled={disabled}
-        className={`px-6 py-2 rounded-lg font-semibold text-white transition-colors duration-200
-          bg-green-500`}
-        aria-label="Mark as Legitimate"
-      >
-        Legitimate
-      </button>
-      <button
-        onClick={() => onChoice(true)}
-        disabled={disabled}
-        className={`px-6 py-2 rounded-lg font-semibold text-white  transition-colors duration-200 bg-red-500`}
-        aria-label="Mark as Phishing"
-      >
-        Phishing
-      </button>
-    </div>
-  );
-};
-
-interface FeedbackModalProps {
-  isCorrect: boolean;
-  explanation: string;
-  hints?: string[];
-  onNext: () => void;
-}
-
-const FeedbackModal: React.FC<FeedbackModalProps> = ({ isCorrect, explanation, hints, onNext }) => {
-  const bgColor = isCorrect ? 'bg-green-100 border-green-500' : 'bg-red-100 border-red-500';
-  const textColor = isCorrect ? 'text-green-800' : 'text-red-800';
-  const title = isCorrect ? 'Correct!' : 'Incorrect!';
-
-  return (
-    <div className={`mt-4 p-4 ${bgColor} ${textColor} rounded-md`}>
-      <h4 className="font-bold text-lg mb-2">{title}</h4>
-      <p className="mb-3">{explanation}</p>
-      {/* Display hints if available */}
-      {hints && hints.length > 0 && (
-        <div className="mb-3">
-          <p className="font-semibold text-sm">Key Indicators:</p>
-          <ul className="list-disc list-inside text-sm">
-            {hints.map((hint, index) => (
-              <li key={index}>{hint}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-      <button
-        onClick={onNext}
-        className="mt-2 px-4 py-1 bg-blue-500 text-white rounded-md font-semibold transition-colors duration-200"
-        aria-label="Go to next example"
-      >
-        Next
-      </button>
-    </div>
-  );
-};
-
-
-const PhishingGame: React.FC = () => {
-  const [examples, setExamples] = useState<IExample[]>([]);
+// Main game component
+const PhishingGame = () => {
+  // Explicitly type state for clarity, even if inferred
+  const [examples, setExamples] = useState<Example[]>(EXAMPLES);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
   const [showFeedback, setShowFeedback] = useState<boolean>(false);
-  const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | null>(null);
+  const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [gameOver, setGameOver] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setExamples([...examplesData].sort(() => Math.random() - 0.5));
-      setIsLoading(false);
-    });
-  }, []);
-
-  // Get the current example based on the index
+  // Derived state - get the current example based on index
   const currentExample = examples[currentIndex];
 
-  const handleChoice = (userChoiceIsPhishing: boolean) => {
-    if (showFeedback || !currentExample) return;
-    const correctAnswer = currentExample.isPhishing;
-    const isCorrect = userChoiceIsPhishing === correctAnswer;
+  // Event handlers
 
-    setLastAnswerCorrect(isCorrect);
-    if (isCorrect) {
+  const handleAnswer = (guessedPhishing: boolean) => {
+    const correct = guessedPhishing === currentExample.isPhishing;
+    setIsCorrect(correct);
+
+    if (correct) {
+      // Use functional update form 
       setScore(prevScore => prevScore + 1);
     }
+
     setShowFeedback(true);
   };
 
-  // Handler for the "Next" button in the feedback modal
-  const handleNext = () => {
-    setShowFeedback(false);
-    setLastAnswerCorrect(null);
+  const nextQuestion = () => {
+    setShowFeedback(false); // Hide feedback first
+    setIsCorrect(null);    // Reset correctness indicator
 
-    if (currentIndex < examples.length - 1) {
-      setCurrentIndex(prevIndex => prevIndex + 1);
-    } else {
+    const nextIndex = currentIndex + 1;
+    if (nextIndex >= examples.length) {
+      // Last question answered, end the game
       setGameOver(true);
+    } else {
+      // Move to the next example
+      setCurrentIndex(nextIndex);
     }
   };
 
-  const handleRestart = () => {
-    setIsLoading(true);
+  const restart = () => {
+    console.log("Restarting game...");
+    // Reset all game state variables
     setScore(0);
     setCurrentIndex(0);
     setShowFeedback(false);
-    setLastAnswerCorrect(null);
+    setIsCorrect(null);
     setGameOver(false);
-    setTimeout(() => {
-      setExamples([...examplesData].sort(() => Math.random() - 0.5));
-      setIsLoading(false);
-    }, 500);
   };
 
-  if (isLoading) {
+  // Rendering logic
+
+  // Game Over screen
+  if (gameOver) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <p className="text-xl text-gray-600">Loading Game...</p>
+      <div className="max-w-2xl mx-auto p-6 bg-gray-100 min-h-screen flex flex-col items-center justify-center"> {/* Centering */}
+        <h1 className="text-3xl font-bold mb-6 text-gray-800">Game Over!</h1>
+
+        {/* Pass score and total, but maybe not current question index */}
+        <Scoreboard score={score} total={examples.length} />
+
+        <p className="text-xl mb-8 text-gray-700 text-center"> {/* Bigger text */}
+          You scored {score} out of {examples.length}!
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4">
+          <button
+            onClick={restart}
+            className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold shadow"
+          >
+            Play Again
+          </button>
+
+          {/* Basic navigation */}
+          <button
+            onClick={() => window.location.href = '/'}
+            className="px-6 py-2 bg-gray-300 hover:bg-gray-400 text-gray-800 rounded-lg font-bold shadow"
+          >
+            Home
+          </button>
+        </div>
       </div>
     );
   }
 
-  if (gameOver) {
-    return (
-      <div className="max-w-2xl mx-auto p-6 font-sans bg-gray-50 min-h-screen flex flex-col justify-center items-center">
-        <h1 className="text-3xl font-bold mb-6 text-gray-800">Game Over!</h1>
-        <div className="mb-6 w-full">
-          <Scoreboard currentScore={score} totalQuestions={examples.length} />
-        </div>
-        <p className="text-lg mb-6 text-gray-700">
-          You got {score} out of {examples.length} examples correct!
-        </p>
-        <button
-          onClick={handleRestart}
-          className="px-6 py-2 bg-blue-500 text-white rounded-lg font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-          aria-label="Play Again"
-        >
-          Play Again
-        </button>
-        <button
-          onClick={() => window.location.href = '/'}
-          className="mt-4 px-6 py-2 bg-gray-300 text-gray-800 rounded-lg font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75"
-          aria-label="Go to Home"
-        >
-          Go to Home
-        </button>
-      </div>
-    );
+  // Defensive check in case examples array is empty or index is somehow wrong
+  if (!currentExample) {
+    console.error("Error: Could not get current example for index", currentIndex);
+    return <p className="text-red-500 p-4">Something went wrong trying to load the example. Please refresh.</p>;
   }
 
   // Main game screen
   return (
-    <div className="max-w-2xl mx-auto p-4 sm:p-6 font-sans bg-grbay-50 min-h-screen">
-      <h1 className="text-2xl sm:text-3xl font-bold text-center mb-6 text-white">Spot the Phish!</h1>
+    <div className="max-w-2xl mx-auto p-4 sm:p-6 bg-gray-100 min-h-screen">
+      <h1 className="text-3xl font-bold text-center mb-6 text-gray-900">Spot the Phish!</h1>
 
-      {/* Shows the current example if there's one to pull from */}
-      {currentExample ? (
-        <>
-          <Scoreboard
-            currentScore={score}
-            totalQuestions={examples.length}
-            questionNumber={currentIndex + 1}
-          />
-          <ExampleDisplay example={currentExample} />
+      <Scoreboard
+        score={score}
+        total={examples.length}
+        current={currentIndex + 1} // Show 1-based index
+      />
 
-          {!showFeedback && (
-            <ChoiceButtons onChoice={handleChoice} disabled={showFeedback} />
-          )}
+      <ExampleCard data={currentExample} />
 
-          {showFeedback && (
-            <FeedbackModal
-              isCorrect={lastAnswerCorrect ?? false}
-              explanation={currentExample.explanation}
-              hints={currentExample.hints}
-              onNext={handleNext}
-            />
-          )}
-        </>
+      {/* Made it so either the buttons or the feedback component are shown */}
+      {!showFeedback ? (
+        <div className="flex justify-center space-x-4 mb-4">
+          <button
+            onClick={() => handleAnswer(false)} // Legitimate guess
+            className="px-6 py-2 rounded-lg font-bold text-white bg-green-600 hover:bg-green-700 shadow"
+          >
+            Legitimate
+          </button>
+          <button
+            onClick={() => handleAnswer(true)} // Phishing guess
+            className="px-6 py-2 rounded-lg font-bold text-white bg-red-600 hover:bg-red-700 shadow"
+          >
+            Phishing
+          </button>
+        </div>
       ) : (
-        // The "just in case" fallback if no examples are available
-        <p className="text-center text-red-500">Error: No examples found!</p>
+        // Feedback display area
+        <div className={`mt-4 p-4 rounded-md border-l-4 ${isCorrect ? 'bg-green-50 border-green-500' : 'bg-red-50 border-red-500'} shadow-sm`}>
+          <h4 className={`font-bold text-lg mb-2 ${isCorrect ? 'text-green-700' : 'text-red-700'}`}>
+            {isCorrect ? 'Right!' : 'Wrong!'}
+          </h4>
+
+          <p className="mb-3 text-gray-800">{currentExample.explanation}</p>
+
+          {currentExample.hints && currentExample.hints.length > 0 && (
+            <div className="mb-3">
+              <p className="font-semibold text-sm text-gray-600">Red flags:</p>
+              <ul className="list-disc list-inside pl-2 text-sm text-gray-600 space-y-0.5">
+                {/* Using index as key is common for static lists */}
+                {currentExample.hints.map((hint, index) => (
+                  <li key={index}>{hint}</li> // Simplified key
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <button
+            onClick={nextQuestion}
+            className="mt-2 px-4 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-bold shadow-sm"
+          >
+            {/* Ternary operator for button text */}
+            {currentIndex >= examples.length - 1 ? 'Finish Game' : 'Next Question'}
+          </button>
+        </div>
       )}
     </div>
   );

@@ -1,46 +1,111 @@
+# CyberDojo : Team 6
+# Members
+Project Manager: Maddie Brown (maddieslayy)
 
+Communications Lead: Thomas Doan (tdoan19)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Git Master: William Hays (Williamhays27)
 
-## Available Scripts
+Design Lead: Ahmad Hijazi (ahmxdhijazi)
 
-In the project directory, you can run:
+Quality Assurance Tester: Brandon Facey (KyoukaHeiwa)
 
+# About Our Software
 
+CyberDojo is a platform designed to enhance your cybersecurity
+knowledge and skills through interactive learning experiences.
+Our mission is to empower individuals and organizations with the
+tools and knowledge needed to navigate the ever-evolving
+landscape of cybersecurity threats.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Platforms Tested on
+- MacOS
+- Linux
+- Windows
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Important Links
+Kanban Board: https://sealteamsix.atlassian.net/jira/software/projects/KAN/boards/1
 
-### `npm test`
+Designs: https://www.figma.com/design/RKBsFCjHKgnBgtJlDneJ3n/Login-Main-Pages?node-id=0-1&p=f&t=QIvF6oXn0JBb2Md3-0
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Styles Guide(s): https://google.github.io/styleguide/tsguide.html
 
-### `npm run build`
+# How to Run Dev and Test Environment
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Dependencies
+List of Dependencies, sourced from package.json file
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    "@testing-library/dom": "^10.4.0",
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    "@testing-library/jest-dom": "^6.6.3",
 
-### `npm run eject`
+    "@testing-library/react": "^16.2.0",
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    "@testing-library/user-event": "^13.5.0",
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    "@types/jest": "^27.5.2",
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    "@types/node": "^16.18.126",
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    "@types/react": "^19.0.12",
 
-## Learn More
+    "@types/react-dom": "^19.0.4",
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    "class-variance-authority": "^0.7.1",
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    "clsx": "^2.1.1",
+
+    "firebase": "^11.6.1",
+
+    "lucide-react": "^0.485.0",
+
+    "react": "^19.1.0",
+
+    "react-dom": "^19.1.0",
+
+    "react-firebase-hooks": "^5.1.1",
+
+    "react-router-dom": "^7.5.2",
+
+    "react-scripts": "5.0.1",
+
+    "tailwind-merge": "^3.0.2",
+
+    "tw-animate-css": "^1.2.5",
+
+    "typescript": "^4.9.5",
+
+    "web-vitals": "^2.1.4"
+
+### Downloading Dependencies
+Describe where to download the dependencies here. Some will likely require a web download. Provide links here. For IDE extensions, make sure your project works with the free version of them, and detail which IDE(s) these are available in. 
+
+## Commands
+Before launching CyberDojo, type the following commands into the VS Code terminal when you open up the codebase. After installing all three, you can type in "npm start" to start the CyberDojo website in browser.
+
+Step 1A. Download Git and Node.js using the following links: https://git-scm.com/downloads/win, https://nodejs.org/en/download
+
+Step 1B. Some problems may occur when downloading Node.js. Some fixes include: Running powershell as adminstrator and typing in the following command: fnm env --use-on-cd | Out-String | Invoke-Expression
+This command allows you to do the fnm install 22 command listed on the Node.js link.
+
+Step 1C. You may run into a problem that does not allow you to run scripts, which stops you from using npm -v.
+If this occurs, run the following command to bypass that: Set-ExecutionPolicy RemoteSigned -Scope CurrentUser 
+After this, you should be able to freely use npm commands.
+
+Step 2. Clone the repository https://github.com/CSC-3380-Spring-2025/Team-6.git 
+
+Step 3. Use npm install on the following:
+
+```sh
+npm install react
+```
+
+```sh
+npm install firebase
+```
+
+Step 4. Use npm start to launch CyberDojo.
+
+```sh
+npm start
+```
